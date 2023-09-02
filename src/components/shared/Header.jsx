@@ -1,0 +1,52 @@
+import Link from "next/link";
+import { BiSearch } from "react-icons/bi";
+import { BsCartDashFill } from "react-icons/bs";
+
+const navLink = [
+  {
+    linkText: "Home",
+    linkTo: "/",
+  },
+  {
+    linkText: "Our Products",
+    linkTo: "/products",
+  },
+  {
+    linkText: "About Us",
+    linkTo: "/about",
+  },
+  ,
+  {
+    linkText: "Contact",
+    linkTo: "/contact",
+  },
+];
+
+const Header = () => {
+  return (
+    <header className="bg-[#4e4e4e] bg-opacity-70 flex justify-between text-[#fff] py-7 px-12">
+      {/* Left */}
+      <div></div>
+      {/* Middle */}
+      <div className="flex justify-center items-center gap-10">
+        {navLink.map((item, index) => (
+          <Link
+            href={item.linkTo}
+            key={index}
+            className="text-lg pb-[2px] hover:text-black hover:border-b-[1px] hover:border-black"
+          >
+            {item.linkText}
+          </Link>
+        ))}
+      </div>
+      {/* Right */}
+      <div className="flex justify-center items-center gap-5 text-[#fff] text-2xl  font-bold">
+        <BiSearch className="cursor-pointer" />
+
+        <BsCartDashFill className="cursor-pointer" />
+      </div>
+    </header>
+  );
+};
+
+export default Header;
