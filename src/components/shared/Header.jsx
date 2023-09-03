@@ -24,7 +24,7 @@ const navLink = [
 
 const Header = () => {
   return (
-    <header className="bg-[#4e4e4e] bg-opacity-70 flex justify-between text-[#fff] py-8 px-12">
+    <header className="bg-[#4e4e4e] bg-opacity-70 min-h-[100px] flex justify-between text-[#fff] py-8 px-12">
       {/* Left */}
       <div></div>
       {/* Middle */}
