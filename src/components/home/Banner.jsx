@@ -1,6 +1,6 @@
 const Banner = () => {
   return (
-    <div className="w-[80%] mx-auto mt-16 text-[#fff] text-center ">
+    <div className="w-[80%] mx-auto mt-20 text-[#fff] text-center ">
       <h1 className="text-5xl  uppercase font-normal  tracking-normal">
         Why Fear When{" "}
       </h1>
