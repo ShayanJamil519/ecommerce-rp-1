@@ -1,3 +1,4 @@
+import Footer from "@/components/shared/Footer";
 import Header from "@/components/shared/Header";
 import React from "react";
 
@@ -7,12 +8,11 @@ const page = () => {
       style={{
         background: "url(./assets/Home/news__bg.jpeg) center center/cover",
       }}
-      className="py-10 min-h-screen"
+      className="pt-10 min-h-screen"
     >
       <Header />
-
       {/* Fomr */}
-      <form className="w-[80%] mx-auto  mt-10 bg-[#000] py-10 px-20 rounded-2xl">
+      <form className="w-[80%] mx-auto  my-10 bg-[#000] py-10 px-20 rounded-2xl">
         <h1 className="text-[#fff] text-xl text-center mb-10">
           Give us your feedback/queries
         </h1>
@@ -43,6 +43,7 @@ const page = () => {
           </button>
         </div>
       </form>
+      <Footer />
     </div>
   );
 };

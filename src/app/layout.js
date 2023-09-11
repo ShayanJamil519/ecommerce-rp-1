@@ -1,4 +1,4 @@
-import Footer from '@/components/shared/Footer'
+
 import LayoutWrapperClientComponent from './LayoutWrapperClientComponent'
 import './globals.css'
 import { Inter } from 'next/font/google'
@@ -16,7 +16,7 @@ export default function RootLayout({ children }) {
       <body className={inter.className}>
         <LayoutWrapperClientComponent>
         {children}
-        <Footer />
+      
         </LayoutWrapperClientComponent>
         </body>
     </html>

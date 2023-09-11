@@ -2,6 +2,7 @@ import Banner from "@/components/home/Banner";
 import BestSellers from "@/components/home/BestSellers";
 import News from "@/components/home/News";
 import NewsLetter from "@/components/home/NewsLetter";
+import Footer from "@/components/shared/Footer";
 import Header from "@/components/shared/Header";
 
 export default function Home() {
@@ -29,6 +30,7 @@ export default function Home() {
         <BestSellers />
         <NewsLetter />
       </div>
+          <Footer />
     </div>
   );
 }
