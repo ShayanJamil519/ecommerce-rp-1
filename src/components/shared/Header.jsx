@@ -20,11 +20,16 @@ const navLink = [
     linkText: "Contact",
     linkTo: "/contact",
   },
+  ,
+  {
+    linkText: "Login",
+    linkTo: "/login",
+  },
 ];
 
 const Header = () => {
   return (
-    <header className="bg-[#4e4e4e] bg-opacity-70 min-h-[100px] flex justify-between text-[#fff] py-8 px-12">
+    <header className="bg-[#4e4e4e]  w-[90%] mx-auto rounded-full bg-opacity-70 min-h-[100px] flex justify-between text-[#fff] py-8 px-12">
       {/* Left */}
       <div></div>
       {/* Middle */}
