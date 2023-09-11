@@ -20,31 +20,37 @@ export const newsImages = [
 
 export const productData =[
     {
+        id:1,
         productImage:  shampooImg1 ,
         productTitle: "Shampoo",
         productPrice: "100$"
     },
     {
+        id:2,
         productImage:  shampooImg1 ,
         productTitle: "Shampoo",
         productPrice: "100$"
     },
     {
+        id:3,
         productImage:  shampooImg1 ,
         productTitle: "Shampoo",
         productPrice: "100$"
     },
     {
+        id:4,
         productImage:  shampooImg1 ,
         productTitle: "Shampoo",
         productPrice: "100$"
     },
     {
+        id:5,
         productImage:  shampooImg1 ,
         productTitle: "Shampoo",
         productPrice: "100$"
     },
     {
+        id:6,
         productImage:  shampooImg1 ,
         productTitle: "Shampoo",
         productPrice: "100$"

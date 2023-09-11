@@ -1,7 +1,10 @@
+"use client";
 import Image from "next/image";
 import { productData } from "./data__home";
+import { useRouter } from "next/navigation";
 
 const BestSellers = () => {
+  const router = useRouter();
   return (
     <div className="my-16">
       {/* Heading */}
@@ -18,7 +21,8 @@ const BestSellers = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 ">
           {productData.map((item, index) => (
             <div
-              className="bg-[#000] p-4 text-[#fff] rounded-lg text-center  hover:bg-opacity-80 hover:bg-slate-700"
+              onClick={() => router.push(`/product-details/${item.id}`)}
+              className="bg-[#000] cursor-pointer p-4 text-[#fff] rounded-lg text-center  hover:bg-opacity-80 hover:bg-slate-700"
               key={index}
             >
               <Image
