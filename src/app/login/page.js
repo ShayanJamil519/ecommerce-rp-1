@@ -12,7 +12,7 @@ const page = () => {
       className="min-h-screen grid grid-cols-2 justify-items-center place-items-center"
     >
       {/* Left */}
-      <div className=" border-black w-2/3 mt-20">
+      <div className=" border-black w-2/3 my-20">
         <h1 className="text-4xl font-bold uppercase mb-16 text-[#fff] text-center">
           Login
         </h1>
@@ -57,7 +57,7 @@ const page = () => {
           <div className="flex justify-center items-center">
             <button
               type="submit"
-              className="w-3/4  border-none text-lg py-2 rounded-md bg-[#000] text-[#fff]"
+              className="w-full  border-none text-lg py-2 rounded-md bg-[#000] hover:bg-[#8f8785] text-[#fff]"
             >
               Login
             </button>
@@ -65,7 +65,7 @@ const page = () => {
           <div className="flex justify-center items-center mt-5">
             {/* eslint-disable-next-line react/no-unescaped-entities */}
             <p className="text-[#fff]">Don't have an account?</p>{" "}
-            <Link href="/signup" className="text-[#bbbab8] ml-2">
+            <Link href="/signup" className="text-[#cac9c9] ml-2">
               SignUp
             </Link>
           </div>
@@ -87,10 +87,10 @@ const page = () => {
             </h1>
 
             <div className="flex justify-center items-center gap-4 flex-col">
-              <button className="w-full flex justify-center items-center  border-none text-lg py-2 rounded-md bg-[#000] text-[#fff]">
+              <button className="w-full flex justify-center items-center  border-none text-lg py-2 rounded-md bg-[#000] hover:bg-[#8f8785] text-[#fff]">
                 <FaFacebookF className="text-xl mr-2" /> Facebook
               </button>
-              <button className="w-full flex justify-center items-center border-none text-lg py-2 rounded-md bg-[#000] text-[#fff]">
+              <button className="w-full flex justify-center items-center border-none text-lg py-2 rounded-md bg-[#000] hover:bg-[#8f8785] text-[#fff]">
                 <BsGoogle className="text-xl mr-2" /> Google
               </button>
             </div>
