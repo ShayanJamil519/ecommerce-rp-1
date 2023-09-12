@@ -9,6 +9,13 @@ module.exports = {
     extend: {
     
     },
+
+    backgroundImage:{
+      "news__bg": "url('./assets/Home/news__bg.jpeg) center center/cover",
+    }
+
+
   },
+
   plugins: [],
 }
