@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { BiSearch } from "react-icons/bi";
 import { BsCartDashFill } from "react-icons/bs";
+import LoginButton from "./LoginButton";
 
 const navLink = [
   {
@@ -21,10 +22,6 @@ const navLink = [
     linkTo: "/contact",
   },
   ,
-  {
-    linkText: "Login",
-    linkTo: "/login",
-  },
 ];
 
 const Header = () => {
@@ -47,6 +44,8 @@ const Header = () => {
       {/* Right */}
       <div className="flex justify-center items-center gap-5 text-[#fff] text-2xl  font-bold">
         <BiSearch className="cursor-pointer" />
+
+        <LoginButton />
 
         <BsCartDashFill className="cursor-pointer" />
       </div>

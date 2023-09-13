@@ -3,7 +3,7 @@ import BestSellers from "@/components/home/BestSellers";
 import News from "@/components/home/News";
 import NewsLetter from "@/components/home/NewsLetter";
 import Footer from "@/components/shared/Footer";
-import Header from "@/components/shared/Header";
+import Header from "@/components/shared/Header/Header";
 
 export default function Home() {
   return (
