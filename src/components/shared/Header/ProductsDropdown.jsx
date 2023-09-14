@@ -21,10 +21,10 @@ export default function ProductsDropdown() {
   };
 
   return (
-    <div>
+    <div className="w-fit">
       <Button
         id="basic-button"
-        className="text-lg pb-[2px] text-[#fff] hover:text-black hover:border-b-[1px] hover:border-black"
+        className="text-lg capitalize pb-[2px] -mt-[5px] px-0 text-[#fff] hover:text-black hover:border-b-[1px] hover:border-black"
         aria-controls={open ? "basic-menu" : undefined}
         aria-haspopup="true"
         aria-expanded={open ? "true" : undefined}

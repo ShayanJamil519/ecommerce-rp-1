@@ -44,7 +44,7 @@ function ProductQuality() {
               className="absolute rounded-full text-white flex justify-center items-center"
               style={{
                 left: adjustedX - 70,
-                top: adjustedY,
+                top: adjustedY - 20,
               }}
             >
               <p> {char}</p>

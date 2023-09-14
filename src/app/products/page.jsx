@@ -1,6 +1,7 @@
 import Banner from "@/components/products/Banner";
 import ProductQuality from "@/components/products/ProductQuality";
 import BestSellers from "@/components/shared/BestSellers";
+import Footer from "@/components/shared/Footer";
 import Header from "@/components/shared/Header/Header";
 import { productData } from "@/components/shared/data";
 import React from "react";
@@ -31,6 +32,7 @@ const page = () => {
         <ProductQuality />
         <BestSellers productData={productData.slice(3)} isHome={false} />
       </div>
+      <Footer />
     </>
   );
 };

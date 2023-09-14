@@ -1,8 +1,12 @@
+"use client";
 import Link from "next/link";
 import { BiSearch } from "react-icons/bi";
 import { BsCartDashFill } from "react-icons/bs";
 import LoginButton from "./LoginButton";
 import ProductsDropdown from "./ProductsDropdown";
+import SearchProductsModal from "@/components/shared/SearchInput";
+import { useStateContext } from "../../../Context/StateContext";
+import SearchInput from "@/components/shared/SearchInput";
 
 const navLink = [
   {
@@ -23,25 +27,16 @@ const navLink = [
 ];
 
 const Header = () => {
+  const { openSearchModel, handleSearchModelOpen } = useStateContext();
   return (
-    <header className="bg-[#4e4e4e]  w-[90%] mx-auto rounded-full bg-opacity-70 min-h-[100px] flex justify-between text-[#fff] py-8 px-12">
+    <header className="bg-[#4e4e4e]  w-[90%] mx-auto rounded-full bg-opacity-70 min-h-[110px] flex justify-between text-[#fff] py-8 px-12">
       {/* Left */}
       <div></div>
       {/* Middle */}
-      <div className="flex justify-center items-center gap-10">
-        {/* {navLink.map((item, index) => (
-          <Link
-            href={item.linkTo}
-            key={index}
-            className="text-lg pb-[2px] hover:text-black hover:border-b-[1px] hover:border-black"
-          >
-            {item.linkText}
-          </Link>
-        ))} */}
-
+      <div className="flex justify-center items-center ">
         <Link
           href="/"
-          className="text-lg pb-[2px] hover:text-black hover:border-b-[1px] hover:border-black"
+          className="text-lg pb-[2px] hover:text-black hover:border-b-[1px] hover:border-black mr-10"
         >
           Home
         </Link>
@@ -50,21 +45,23 @@ const Header = () => {
 
         <Link
           href="/about"
-          className="text-lg pb-[2px] hover:text-black hover:border-b-[1px] hover:border-black"
+          className="text-lg pb-[2px] hover:text-black hover:border-b-[1px] hover:border-black  mr-10"
         >
           About Us
         </Link>
 
         <Link
           href="/contact"
-          className="text-lg pb-[2px] hover:text-black hover:border-b-[1px] hover:border-black"
+          className="text-lg pb-[2px] hover:text-black hover:border-b-[1px] hover:border-black "
         >
           Contact
         </Link>
       </div>
       {/* Right */}
       <div className="flex justify-center items-center gap-5 text-[#fff] text-2xl  font-bold">
-        <BiSearch className="cursor-pointer" />
+        {openSearchModel && <SearchInput />}
+
+        <BiSearch className="cursor-pointer" onClick={handleSearchModelOpen} />
 
         <LoginButton />
 
