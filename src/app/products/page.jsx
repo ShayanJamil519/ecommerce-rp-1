@@ -1,18 +1,18 @@
-import Banner from "@/components/home/Banner";
-import News from "@/components/home/News";
-import NewsLetter from "@/components/home/NewsLetter";
+import Banner from "@/components/products/Banner";
+import ProductQuality from "@/components/products/ProductQuality";
 import BestSellers from "@/components/shared/BestSellers";
-import Footer from "@/components/shared/Footer";
 import Header from "@/components/shared/Header/Header";
 import { productData } from "@/components/shared/data";
+import React from "react";
 
-export default function Home() {
+const page = () => {
   return (
-    <div>
+    <>
       {/* Top Container */}
       <div
         style={{
-          background: "url(./assets/Home/home__banner.jpeg) center center/cover",
+          background:
+            "url(./assets/Home/home__banner.jpeg) center center/cover",
         }}
         className="py-10 min-h-screen"
       >
@@ -27,11 +27,12 @@ export default function Home() {
         }}
         className="py-16 min-h-screen"
       >
-        <News />
-        <BestSellers productData={productData.slice(0, 3)} isHome={true} />
-        <NewsLetter />
+        <BestSellers productData={productData.slice(0, 3)} isHome={false} />
+        <ProductQuality />
+        <BestSellers productData={productData.slice(3)} isHome={false} />
       </div>
-          <Footer />
-    </div>
+    </>
   );
-}
+};
+
+export default page;

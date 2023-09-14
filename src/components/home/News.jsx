@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import { useState } from "react";
-import { newsImages } from "./data__home";
+import { newsImages } from "../shared/data";
 import { BsChevronRight, BsChevronLeft } from "react-icons/bs";
 
 const News = () => {

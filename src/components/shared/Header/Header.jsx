@@ -2,16 +2,14 @@ import Link from "next/link";
 import { BiSearch } from "react-icons/bi";
 import { BsCartDashFill } from "react-icons/bs";
 import LoginButton from "./LoginButton";
+import ProductsDropdown from "./ProductsDropdown";
 
 const navLink = [
   {
     linkText: "Home",
     linkTo: "/",
   },
-  {
-    linkText: "Our Products",
-    linkTo: "/products",
-  },
+
   {
     linkText: "About Us",
     linkTo: "/about",
@@ -31,7 +29,7 @@ const Header = () => {
       <div></div>
       {/* Middle */}
       <div className="flex justify-center items-center gap-10">
-        {navLink.map((item, index) => (
+        {/* {navLink.map((item, index) => (
           <Link
             href={item.linkTo}
             key={index}
@@ -39,7 +37,30 @@ const Header = () => {
           >
             {item.linkText}
           </Link>
-        ))}
+        ))} */}
+
+        <Link
+          href="/"
+          className="text-lg pb-[2px] hover:text-black hover:border-b-[1px] hover:border-black"
+        >
+          Home
+        </Link>
+
+        <ProductsDropdown />
+
+        <Link
+          href="/about"
+          className="text-lg pb-[2px] hover:text-black hover:border-b-[1px] hover:border-black"
+        >
+          About Us
+        </Link>
+
+        <Link
+          href="/contact"
+          className="text-lg pb-[2px] hover:text-black hover:border-b-[1px] hover:border-black"
+        >
+          Contact
+        </Link>
       </div>
       {/* Right */}
       <div className="flex justify-center items-center gap-5 text-[#fff] text-2xl  font-bold">

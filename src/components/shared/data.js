@@ -55,6 +55,25 @@ export const productData =[
         productTitle: "Shampoo",
         productPrice: "100$"
     },
+    ,
+    {
+        id:7,
+        productImage:  shampooImg1 ,
+        productTitle: "Shampoo",
+        productPrice: "100$"
+    },
+    {
+        id:8,
+        productImage:  shampooImg1 ,
+        productTitle: "Shampoo",
+        productPrice: "100$"
+    },
+    {
+        id:9,
+        productImage:  shampooImg1 ,
+        productTitle: "Shampoo",
+        productPrice: "100$"
+    },
   
     
 ]

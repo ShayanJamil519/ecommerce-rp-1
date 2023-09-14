@@ -1,20 +1,19 @@
 "use client";
 import Image from "next/image";
-import { productData } from "./data__home";
-import { useRouter } from "next/navigation";
 import Link from "next/link";
 
-const BestSellers = () => {
-  const router = useRouter();
+const BestSellers = ({ productData, isHome }) => {
   return (
     <div className="my-16">
       {/* Heading */}
-      <div className="mb-10">
-        <h1 className="text-5xl font-bold text-center text-[#fff] uppercase">
-          Best Sellers
-        </h1>
-        <hr className="bg-[#fff] w-40 mx-auto mt-2 " />
-      </div>
+      {isHome && (
+        <div className="mb-10">
+          <h1 className="text-5xl font-bold text-center text-[#fff] uppercase">
+            Best Sellers
+          </h1>
+          <hr className="bg-[#fff] w-40 mx-auto mt-2 " />
+        </div>
+      )}
 
       {/* Grid */}
 
