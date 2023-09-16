@@ -1,15 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 
-// const firebaseConfig = {
-//   apiKey: "AIzaSyChDg9Fx5HzkG1amZGOxu0OzLog_AShTWM",
-//   authDomain: "ecommerce-rp-1.firebaseapp.com",
-//   projectId: "ecommerce-rp-1",
-//   storageBucket: "ecommerce-rp-1.appspot.com",
-//   messagingSenderId: "196477334657",
-//   appId: "1:196477334657:web:f08028eb642b1b3db70980",
-//   measurementId: "G-0MKMSFNFH5"
-// };
 
 
 const firebaseConfig = {
