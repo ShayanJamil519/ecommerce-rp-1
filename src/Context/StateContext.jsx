@@ -1,19 +1,26 @@
 "use client";
 import { createContext, useContext, useState } from "react";
+import useFirebaseAuth from "../app/lib/useFirebaseAuth";
 
 // Create the context
-const StateContext = createContext();
+const StateContext = createContext({
+  authUser: null,
+  loading: true,
+});
 
 // Create a provider component
 export function StateProvider({ children }) {
   const [openSearchModel, setOpenSearchModel] = useState(false);
+  const auth = useFirebaseAuth();
 
   const handleSearchModelOpen = () => {
     setOpenSearchModel(!openSearchModel);
   };
 
   return (
-    <StateContext.Provider value={{ openSearchModel, handleSearchModelOpen }}>
+    <StateContext.Provider
+      value={{ openSearchModel, handleSearchModelOpen, auth }}
+    >
       {children}
     </StateContext.Provider>
   );
