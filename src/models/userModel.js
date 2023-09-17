@@ -19,6 +19,9 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: [true, "Please enter a password"],
   },
+  passwordResetToken: { type: String, default: "" },
+  passwordResetExpires: { type: Date, default: new Date() }
+
 });
 
 const User = mongoose.models.User  || mongoose.model("User", userSchema); // Use singular "User" as the model name
