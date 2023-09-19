@@ -1,16 +1,11 @@
 import { connectDb } from "../../../../DBConfig/connectDB";
+import apiUrl from "../../../../utils/baseURL";
 import User from "../../../../models/userModel";
 import { NextResponse } from "next/server";
 import crypto from "crypto";
 import { createTransport } from "nodemailer";
 
-const environment = process.env.NEXT_PUBLIC_ENVIRONMENT;
-let apiUrl;
-if (environment === "production") {
-  apiUrl = process.env.NEXT_PUBLIC_PRODUCTION_URL;
-} else {
-  apiUrl = process.env.NEXT_PUBLIC_DEVELOPMENT_URL;
-}
+
 
 export async function POST(request) {
   try {

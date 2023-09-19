@@ -8,10 +8,10 @@ export async function POST(request) {
   try {
     const reqBody = await request.json();
     const { name, email, phone, password } = reqBody;
-    const userExists = await User.findOne({ email });
+    const userExists = await User.findOne().or([{ email }, { phone }]);
     if (userExists) {
      return NextResponse.json({
-        error: "User already exists",
+        error: "User with the same email or phone already exists",
       });
     }
     const salt = await bcryptjs.genSalt(10);
