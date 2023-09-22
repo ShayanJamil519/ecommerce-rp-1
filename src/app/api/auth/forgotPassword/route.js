@@ -7,7 +7,7 @@ import { createTransport } from "nodemailer";
 
 
 
-export async function POST(request) {
+export async function PUT(request) {
   try {
     const reqBody = await request.json();
     const { email } = reqBody;
@@ -57,7 +57,7 @@ export async function POST(request) {
       return NextResponse.json({ message: "Password reset email sent." });
     } catch (error) {
       return NextResponse.json({
-        message: "Error sending reset password mail",
+        error: "Error sending reset password mail",
       });
     }
   } catch (error) {

@@ -32,12 +32,21 @@ const Signup = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
+    if (userData.password !== confirmPassword) {
+      toast.error("Passwords doesn't match");
+      return;
+    }
+
     addMutate(
       {},
       {
         onSuccess: (response) => {
-          toast.success("Signup successfull");
-          console.log(response);
+          if (response?.data?.error) {
+            toast.error(response?.data?.error);
+          }
+          if (response?.data?.message) {
+            toast.success(response?.data?.message);
+          }
         },
       }
     );

@@ -11,7 +11,8 @@ module.exports = {
     },
 
     backgroundImage:{
-      "news__bg": "url('./assets/Home/news__bg.jpeg) center center/cover",
+      // "news__bg": "url('./assets/Home/news__bg.jpeg) center center/cover",
+      "login__bg": "url('/assets/Shared/login__bg.jpg') "
     }
 
 

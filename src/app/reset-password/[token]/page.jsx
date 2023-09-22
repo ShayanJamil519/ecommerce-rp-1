@@ -1,17 +1,10 @@
-import ForgotPassword from "@/components/auth/ForgotPassword";
+import ResetPassword from "@/components/auth/ResetPassword";
 
-
-const page = () => {
+const page = ({ params }) => {
   return (
-    <div
-      style={{
-        background: "url(./assets/Shared/login__bg.jpg) center center/cover",
-      }}
-      className="min-h-screen grid grid-cols-2 justify-items-center place-items-center"
-    >
+    <div className="min-h-screen grid grid-cols-2 justify-items-center place-items-center bg-login__bg">
       {/* Left */}
-      <ForgotPassword />
-    
+      <ResetPassword token={params.token} />
 
       {/* Right */}
       <div className="flex justify-end px-10">

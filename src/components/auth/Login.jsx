@@ -1,23 +1,68 @@
 "use client";
 import Link from "next/link";
+import { toast } from "react-toastify";
 import { BiSolidUser, BiSolidLockAlt } from "react-icons/bi";
 import { FaFacebookF } from "react-icons/fa";
 import { BsGoogle } from "react-icons/bs";
 import useFirebaseAuth from "../../app/lib/useFirebaseAuth";
+import { useState } from "react";
+import { useUserLogin } from "../../hooks/auth-hook";
+import RequestLoader from "../shared/RequestLoader";
 
 const Login = () => {
   const { signInWithFacebook, signInWithGoogle } = useFirebaseAuth();
+
+  const [userData, setUserData] = useState({
+    email: "",
+    password: "",
+  });
+
+  const {
+    mutate: addMutate,
+    isLoading,
+    isError,
+  } = useUserLogin(JSON.stringify(userData));
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setUserData({
+      ...userData,
+      [name]: value,
+    });
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    addMutate(
+      {},
+      {
+        onSuccess: (response) => {
+          if (response?.data?.error) {
+            toast.error(response?.data?.error);
+          }
+          if (response?.data?.message) {
+            toast.success(response?.data?.message);
+          }
+        },
+      }
+    );
+  };
+
   return (
     <div className=" border-black w-2/3 my-20">
       <h1 className="text-4xl font-bold uppercase mb-16 text-[#fff] text-center">
         Login
       </h1>
-      <form>
+      <form onSubmit={handleSubmit}>
         <div className="mb-6 flex justify-between items-center relative">
           <input
             required
-            type="text"
-            placeholder="Username"
+            type="email"
+            placeholder="Email"
+            name="email"
+            value={userData.email}
+            onChange={handleInputChange}
             className="bg-[#282725] w-full pb-1 text-[#fff] text-base focus:outline-none border-b-[1px]  border-gray-400"
           />
           <BiSolidUser className="text-gray-400 text-2xl absolute right-0 bottom-1 " />
@@ -28,6 +73,9 @@ const Login = () => {
             required
             type="password"
             placeholder="Password"
+            name="password"
+            value={userData.password}
+            onChange={handleInputChange}
             className="bg-[#282725] w-full pb-1 text-[#fff] text-base focus:outline-none border-b-[1px] border-gray-400"
           />
           <BiSolidLockAlt className="text-gray-400 text-2xl absolute right-0 bottom-1 " />
@@ -51,7 +99,7 @@ const Login = () => {
             type="submit"
             className="w-full  border-none text-lg py-2 rounded-md bg-[#000] hover:bg-[#8f8785] text-[#fff]"
           >
-            Login
+            {isLoading ? <RequestLoader /> : "Login"}
           </button>
         </div>
         <div className="flex justify-center items-center mt-5">
