@@ -1,5 +1,5 @@
 import { connectDb } from "../../../../DBConfig/connectDB";
-import User from "../../../../models/userModel"
+import User from "../../../../models/userModel";
 import jwt from "jsonwebtoken";
 import bcryptjs from "bcryptjs";
 import { NextResponse } from "next/server";
@@ -8,9 +8,10 @@ export async function POST(request) {
   try {
     const reqBody = await request.json();
     const { name, email, phone, password } = reqBody;
+    console.log({ reqBody });
     const userExists = await User.findOne().or([{ email }, { phone }]);
     if (userExists) {
-     return NextResponse.json({
+      return NextResponse.json({
         error: "User with the same email or phone already exists",
       });
     }
@@ -29,7 +30,7 @@ export async function POST(request) {
       user: savedUser,
     });
   } catch (error) {
-      return NextResponse.json({ error: "Internal Server Error" });
+    return NextResponse.json({ error: "Internal Server Error" });
   }
 }
 connectDb();
