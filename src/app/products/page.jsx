@@ -1,5 +1,4 @@
 import Banner from "@/components/products/Banner";
-import ProductQuality from "@/components/products/ProductQuality";
 import BestSellers from "@/components/shared/BestSellers";
 import Footer from "@/components/shared/Footer";
 import Header from "@/components/shared/Header/Header";
@@ -28,9 +27,7 @@ const page = () => {
         }}
         className="py-16 min-h-screen"
       >
-        <BestSellers productData={productData.slice(0, 3)} isHome={false} />
-        <ProductQuality />
-        <BestSellers productData={productData.slice(3)} isHome={false} />
+        <BestSellers productData={productData} isHome={false} />
       </div>
       <Footer />
     </>

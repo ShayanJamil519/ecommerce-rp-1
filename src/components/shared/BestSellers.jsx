@@ -1,8 +1,10 @@
 "use client";
 import Image from "next/image";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const BestSellers = ({ productData, isHome }) => {
+  const router = useRouter();
+
   return (
     <div className="my-16">
       {/* Heading */}
@@ -20,10 +22,10 @@ const BestSellers = ({ productData, isHome }) => {
       <div className="w-[85%] mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 ">
           {productData.map((item, index) => (
-            <Link
+            <div
               // onClick={() => router.push(`/product-details/${item.id}`)}
-              href={`/product-details/${item.id}`}
-              className="bg-[#000] cursor-pointer p-4 text-[#fff] rounded-lg text-center  hover:bg-opacity-80 hover:bg-slate-700"
+
+              className="bg-[#000]  p-4 text-[#fff] rounded-lg text-center  hover:bg-opacity-80 hover:bg-slate-700"
               key={index}
             >
               <Image
@@ -33,10 +35,13 @@ const BestSellers = ({ productData, isHome }) => {
               />
               <h1 className="text-2xl uppercase mb-1">{item.productTitle}</h1>
               <p className="text-lg"> {item.productPrice}</p>
-              <button className="bg-[#000] border-[1px] uppercase border-[#fff] text-[#fff] py-2 px-5 rounded-lg mt-4">
-                Add to cart
+              <button
+                onClick={() => router.push(`/product-details/${item.id}`)}
+                className="bg-[#000] w-full border-[1px] uppercase border-[#fff] text-[#fff] py-2 px-5 rounded-md mt-4"
+              >
+                View Details
               </button>
-            </Link>
+            </div>
           ))}
         </div>
       </div>
