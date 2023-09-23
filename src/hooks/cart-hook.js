@@ -15,7 +15,4 @@ const useUserAddToCart = (cartData) => {
   );
 };
 
-
-
-
-export {useUserAddToCart  };
+export { useUserAddToCart };
