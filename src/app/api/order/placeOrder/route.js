@@ -26,16 +26,6 @@ export async function POST(request) {
 
     if (placeOrder == true) {
       try {
-        // let mailOptions = {
-        //   to: "muhammadabdullahimdad10@gmail.com",
-        //   from: useremail,
-        //   subject: "Password Reset",
-        //   text: `You are receiving this because you have requested the reset of the password for your account.
-        //   Please click on the following link, or paste this into your browser to complete the process.`,
-        // };
-
-        // await transporter.sendMail(mailOptions);
-
         const emailSend = await transporter.sendMail({
           to: "muhammadabdullahimdad10@gmail.com",
           from: {
@@ -49,7 +39,24 @@ export async function POST(request) {
                `,
         });
 
-        return NextResponse.json({ message: "order has been placed" });
+        if (emailSend.response.includes("OK")) {
+          // Loop through the cart items and update the InStock value for each product
+          for (const item of reqBody.cart) {
+            const productId = item.productId._id;
+            const orderedQuantity = item.quantity;
+
+            // Find the product by ID and update its InStock value
+            await Product.findByIdAndUpdate(
+              productId,
+              { $inc: { InStock: -orderedQuantity } },
+              { new: true, runValidators: true }
+            );
+          }
+
+          return NextResponse.json({ message: "order has been placed" });
+        } else {
+          return NextResponse.json({ error: "Email Not Sent" });
+        }
       } catch (error) {
         console.log("error: ", error);
         return NextResponse.json({
