@@ -6,8 +6,8 @@ import { useAllProducts } from "../../hooks/product-hook";
 const BestSellers = ({ isHome }) => {
   const router = useRouter();
   const { data: productsData } = useAllProducts();
-  console.log("product");
-  console.log(productsData);
+  // console.log("product");
+  // console.log(productsData);
 
   return (
     <div className="my-16">

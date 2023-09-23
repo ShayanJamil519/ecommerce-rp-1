@@ -1,10 +1,76 @@
+"use client"
 import Image from "next/image";
 import Shampoo from "@/public/assets/Home/shampoo__img1.jpg";
 import ColorSelector from "./ColorSelector";
 import SizeSelector from "./SizeSelector";
 import GenderSelector from "./GenderSelector";
+import { useState } from "react";
+import { toast } from "react-toastify";
+import { useUserAddToCart } from "../../hooks/cart-hook";
 
-const ProductDetails = () => {
+const ProductDetails = ({productId}) => {
+
+  const [cartData, setCartData]  = useState({
+
+    quantity:1,
+    color:"",
+    size:"",
+    gender:""
+    
+  })
+
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setCartData({
+      ...cartData,
+      [name]: value,
+    });
+  };
+
+    const updateColor = (colorValue) => {
+    setCartData({
+      ...cartData,
+      color: colorValue,
+    });
+  };
+
+  const updateSize = (sizeValue) => {
+    setCartData({
+      ...cartData, size:sizeValue
+    })
+  }
+
+
+  const {
+    mutate: addMutate,
+    isLoading,
+    isError,
+  } = useUserAddToCart(JSON.stringify({...cartData, productId}));
+
+
+   const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    addMutate(
+      {},
+      {
+        onSuccess: (response) => {
+          if (response?.data?.error) {
+            toast.error(response?.data?.error);
+          }
+          if (response?.data?.message) {
+            toast.success(response?.data?.message);
+          }
+        },
+      }
+    );
+  };
+
+
+
+
+
   return (
       <div className="min-h-[80vh] my-16 w-[85%]  mx-auto grid grid-cols-3 gap-6">
         {/* Left */}
@@ -35,9 +101,9 @@ const ProductDetails = () => {
             Explicabo eligendi vitae accusamus ut autem soluta quibusdam.
           </p>
 
-        <ColorSelector />
-        <SizeSelector />
-        <GenderSelector />
+        <ColorSelector selectedColor={cartData.color} updateColor={updateColor}  />
+        <SizeSelector selectedSize={cartData.size} updateSize={updateSize} />
+        <GenderSelector handleInputChange={handleInputChange} gender={cartData.gender} />
 
          
           <p className=" text-2xl font-semibold mb-3">
@@ -48,12 +114,18 @@ const ProductDetails = () => {
           <div className="flex justify-start items-center gap-6">
             <p className="text-2xl font-semibold">Quantity:</p>
             <div className="flex justify-start items-center gap-5 text-xl text-[#fff]">
-              <div className="w-[30px] grid place-items-center rounded-md bg-[#fff] text-[#000] cursor-pointer">
-                <p className=" text-2xl ">+</p>
+              <div className="w-[30px] grid place-items-center rounded-md bg-[#fff] text-[#000] cursor-pointer"  onClick={() => {
+                if (cartData.quantity > 1) {
+                  setCartData({ ...cartData, quantity: cartData.quantity - 1 });
+                }
+              }}>
+                <p className=" text-2xl "  >-</p>
               </div>
-              <p className=" text-2xl ">1</p>
-              <div className="w-[30px] grid place-items-center rounded-md bg-[#fff] text-[#000] cursor-pointer">
-                <p className="text-2xl font-semibold">-</p>
+              <p className=" text-2xl ">{cartData.quantity}</p>
+              <div className="w-[30px] grid place-items-center rounded-md bg-[#fff] text-[#000] cursor-pointer" onClick={() => {
+                setCartData({ ...cartData, quantity: cartData.quantity + 1 });
+              }}>
+                <p className="text-2xl font-semibold"  >+</p>
               </div>
             </div>
           </div>
@@ -62,8 +134,8 @@ const ProductDetails = () => {
 
           <div className="mt-8 flex justify-start items-center gap-5">
             
-            <button className="bg-[#8f8785] hover:bg-[#75706e] w-60  uppercase  text-[#fff] py-2 px-5 rounded-md">
-              Add to cart
+            <button onClick={handleSubmit} className="bg-[#8f8785] hover:bg-[#75706e] w-60  uppercase  text-[#fff] py-2 px-5 rounded-md">
+             {isLoading ? "Adding..." : "Add to cart"}
             </button>
           </div>
         </div>

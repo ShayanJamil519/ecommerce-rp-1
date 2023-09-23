@@ -1,9 +1,5 @@
-"use client";
-import React, { useState } from "react";
-
-const SizeSelector = () => {
+const SizeSelector = ({ selectedSize, updateSize }) => {
   const sizes = ["S", "M", "L", "XL"];
-  const [selectedSize, setSelectedSize] = useState("");
 
   return (
     <div className="flex justify-start items-center gap-12 my-5">
@@ -11,9 +7,13 @@ const SizeSelector = () => {
       <div className="flex justify-start items-center gap-3 bg-[#1f1f1e] py-1 px-2 rounded-full">
         {sizes.map((size, index) => (
           <div
-            onClick={() => setSelectedSize(size)}
+            onClick={() => updateSize(size)}
             key={index}
-            className="grid place-items-center text-[12px] cursor-pointer h-6  w-6 rounded-full border-[1px] border-[#fff] text-[#fff] "
+            className={`grid place-items-center text-[12px] cursor-pointer h-6  w-6 rounded-full ${
+              selectedSize === size
+                ? "bg-[#fff] text-[#000]"
+                : "border-[1px] border-[#fff] text-[#fff]"
+            }  `}
           >
             {size}
           </div>

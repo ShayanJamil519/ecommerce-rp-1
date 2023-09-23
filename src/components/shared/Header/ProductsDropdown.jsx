@@ -1,54 +1,66 @@
 "use client";
-import * as React from "react";
-import Button from "@mui/material/Button";
-import Menu from "@mui/material/Menu";
-import MenuItem from "@mui/material/MenuItem";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import { useRouter } from "next/navigation";
+import Link from "next/link";
+import { useState } from "react";
 
 export default function ProductsDropdown() {
-  const router = useRouter();
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const open = Boolean(anchorEl);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
+  const toggleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen);
   };
 
-  const handleClose = () => {
-    setAnchorEl(null);
-    router.push("/products");
+  const closeDropdown = () => {
+    setIsDropdownOpen(false);
   };
 
   return (
-    <div className="w-fit">
-      <Button
-        id="basic-button"
-        className="text-lg capitalize pb-[2px] -mt-[5px] px-0 text-[#fff] hover:text-black hover:border-b-[1px] hover:border-black"
-        aria-controls={open ? "basic-menu" : undefined}
-        aria-haspopup="true"
-        aria-expanded={open ? "true" : undefined}
-        onClick={handleClick}
-        endIcon={<ExpandMoreIcon />}
+    <div className="relative mr-10">
+      <div
+        className="group flex justify-center items-center cursor-pointer"
+        onClick={toggleDropdown}
       >
-        Our Products
-      </Button>
-      <div className="!w-[170px]">
-        <Menu
-          className="w-full"
-          id="basic-menu"
-          anchorEl={anchorEl}
-          open={open}
-          onClose={handleClose}
-          MenuListProps={{
-            "aria-labelledby": "basic-button",
-          }}
+        <Link href={"/products"} className="text-white">
+          Categories
+        </Link>
+        <svg
+          className={`ml-2 w-4 h-4 transform ${
+            isDropdownOpen ? "rotate-180" : ""
+          } transition-transform duration-300`}
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
         >
-          <MenuItem onClick={handleClose}>Profile</MenuItem>
-          <MenuItem onClick={handleClose}>My account</MenuItem>
-          <MenuItem onClick={handleClose}>Logout</MenuItem>
-        </Menu>
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            d="M19 9l-7 7-7-7"
+          ></path>
+        </svg>
       </div>
+
+      <ul
+        className={`absolute z-20 mt-2 space-y-2 bg-gray-800 text-white ${
+          isDropdownOpen ? "block" : "hidden"
+        }`}
+      >
+        <li>
+          <Link href="/category/electronics" onClick={closeDropdown}>
+            Electronics
+          </Link>
+        </li>
+        <li>
+          <Link href="/category/clothing" onClick={closeDropdown}>
+            Clothing
+          </Link>
+        </li>
+        <li>
+          <Link href="/category/home" onClick={closeDropdown}>
+            Home
+          </Link>
+        </li>
+      </ul>
     </div>
   );
 }

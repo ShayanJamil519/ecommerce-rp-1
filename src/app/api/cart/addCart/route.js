@@ -7,7 +7,7 @@ import { NextResponse } from "next/server";
 export async function POST(request) {
   try {
     const reqBody = await request.json();
-    const { useremail, productId, amount, color, size, gender } = reqBody;
+    const { useremail, productId, quantity, color, size, gender } = reqBody;
 
     const product = await Product.findById(productId);
     if (!product) {
@@ -25,7 +25,7 @@ export async function POST(request) {
 
     console.log("aaaa: ", product.InStock);
 
-    if (amount > product?.InStock) {
+    if (quantity > product?.InStock) {
       return NextResponse.json({
         error: "Not enough item in inventory",
       });

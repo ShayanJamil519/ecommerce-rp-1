@@ -2,7 +2,7 @@ import Footer from "@/components/shared/Footer";
 import Header from "@/components/shared/Header/Header";
 import ProductDetails from "@/components/product-details";
 
-const page = () => {
+const page = ({params}) => {
   return (
     <div
       style={{
@@ -12,7 +12,7 @@ const page = () => {
     >
       <Header />
 
-      <ProductDetails />
+      <ProductDetails productId={params.id} />
 
       <Footer />
     </div>
