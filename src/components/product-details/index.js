@@ -27,7 +27,6 @@ const ProductDetails = ({ productId }) => {
   };
 
   const updateColor = (colorValue) => {
-    co;
     setCartData({
       ...cartData,
       color: colorValue,
