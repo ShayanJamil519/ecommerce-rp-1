@@ -61,10 +61,8 @@ const ProductDetails = () => {
           {/* Buttons */}
 
           <div className="mt-8 flex justify-start items-center gap-5">
-            <button className="bg-[#000] hover:bg-[#8f8785] w-40  uppercase  text-[#fff] py-2 px-5 rounded-md">
-              Buy Now
-            </button>
-            <button className="bg-[#000] hover:bg-[#8f8785] w-40  uppercase  text-[#fff] py-2 px-5 rounded-md">
+            
+            <button className="bg-[#8f8785] hover:bg-[#75706e] w-60  uppercase  text-[#fff] py-2 px-5 rounded-md">
               Add to cart
             </button>
           </div>
