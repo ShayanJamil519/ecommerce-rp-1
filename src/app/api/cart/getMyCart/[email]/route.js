@@ -15,7 +15,7 @@ export async function GET(request, { params }) {
       });
     } else {
       cart?.forEach((item) => {
-        totalPrice += item.productId.price * item.amount;
+        totalPrice += item.productId.price * item.quantity;
       });
       const response = NextResponse.json({
         cart,

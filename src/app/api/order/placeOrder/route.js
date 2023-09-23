@@ -10,7 +10,7 @@ export async function POST(request) {
 
     if (reqBody?.cart) {
       for (const item of reqBody.cart) {
-        if (item.productId.InStock < item.amount) {
+        if (item.productId.InStock < item.quantity) {
           error = `${item.productId.name} is out of stock`;
           placeOrder = false; // Set to false if condition is met
           break; // Break the loop
