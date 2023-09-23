@@ -27,7 +27,7 @@ const page = () => {
         }}
         className="py-16 min-h-screen"
       >
-        <BestSellers productData={productData} isHome={false} />
+        <BestSellers isHome={false} />
       </div>
       <Footer />
     </>

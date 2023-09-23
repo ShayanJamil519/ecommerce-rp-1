@@ -8,6 +8,7 @@ export async function POST(request) {
     const product = await Product.create(reqBody);
     const response = NextResponse.json({
       message: "Product created successfully!",
+      product
     });
 
     return response;
