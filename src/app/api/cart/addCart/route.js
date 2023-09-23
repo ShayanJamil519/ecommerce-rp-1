@@ -7,7 +7,7 @@ import { NextResponse } from "next/server";
 export async function POST(request) {
   try {
     const reqBody = await request.json();
-    const { useremail, productId, amount } = reqBody;
+    const { useremail, productId, amount, color, size, gender } = reqBody;
 
     const product = await Product.findById(productId);
     if (!product) {

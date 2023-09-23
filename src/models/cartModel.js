@@ -14,6 +14,18 @@ const cartSchema = new mongoose.Schema({
     type: Number,
     required: [true, "Please enter product amount"],
   },
+  color: {
+    type: Number,
+    required: [true, "Please enter color"],
+  },
+  size: {
+    type: Number,
+    required: [true, "Please enter size"],
+  },
+  gender: {
+    type: Number,
+    required: [true, "Please enter gender "],
+  },
 });
 
 const Cart = mongoose.models.Cart || mongoose.model("Cart", cartSchema);
