@@ -5,8 +5,6 @@ import { NextResponse } from "next/server";
 import crypto from "crypto";
 import { createTransport } from "nodemailer";
 
-
-
 export async function PUT(request) {
   try {
     const reqBody = await request.json();
