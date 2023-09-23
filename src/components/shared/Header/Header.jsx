@@ -4,9 +4,9 @@ import { BiSearch } from "react-icons/bi";
 import { BsCartDashFill } from "react-icons/bs";
 import LoginButton from "./LoginButton";
 import ProductsDropdown from "./ProductsDropdown";
-import SearchProductsModal from "@/components/shared/SearchInput";
 import { useStateContext } from "../../../Context/StateContext";
 import SearchInput from "@/components/shared/SearchInput";
+import { useRouter } from "next/navigation";
 
 const navLink = [
   {
@@ -28,6 +28,7 @@ const navLink = [
 
 const Header = () => {
   const { openSearchModel, handleSearchModelOpen } = useStateContext();
+  const router = useRouter();
   return (
     <header className="bg-[#4e4e4e]  w-[90%] mx-auto rounded-full bg-opacity-70 min-h-[110px] flex justify-between text-[#fff] py-8 px-12">
       {/* Left */}
@@ -65,7 +66,10 @@ const Header = () => {
 
         <LoginButton />
 
-        <BsCartDashFill className="cursor-pointer" />
+        <BsCartDashFill
+          className="cursor-pointer"
+          onClick={() => router.push("/cart")}
+        />
       </div>
     </header>
   );
