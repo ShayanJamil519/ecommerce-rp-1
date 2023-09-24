@@ -9,7 +9,8 @@ import ProductsDropdown from "./ProductsDropdown";
 import { useStateContext } from "../../../Context/StateContext";
 import SearchInput from "@/components/shared/SearchInput";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useUserGetMyCart } from "../../../hooks/cart-hook";
 
 const navLink = [
   {
@@ -32,6 +33,16 @@ const navLink = [
 const Header = () => {
   const { openSearchModel, handleSearchModelOpen } = useStateContext();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [useremail, setUseremail] = useState("");
+
+  const { data: cartData } = useUserGetMyCart(useremail);
+  console.log("cartData");
+  console.log(cartData);
+
+  useEffect(() => {
+    const email = localStorage.getItem("email");
+    setUseremail(email);
+  }, []);
 
   const router = useRouter();
   return (
@@ -76,9 +87,11 @@ const Header = () => {
           <LoginButton />
 
           <div className="relative hidden lg:block">
-            <p className="absolute -top-[10px] -right-[10px] text-[9px] font-bold text-[#000] bg-[#fff] flex justify-center items-center w-[15px] h-[15px] rounded-full ">
-              1
-            </p>
+            {/* {useremail && cartData ? (
+              <p className="absolute -top-[10px] -right-[10px] text-[9px] font-bold text-[#000] bg-[#fff] flex justify-center items-center w-[15px] h-[15px] rounded-full ">
+                {cartData?.cart.length}
+              </p>
+            ) : null} */}
 
             <BsCartDashFill
               className="cursor-pointer "
