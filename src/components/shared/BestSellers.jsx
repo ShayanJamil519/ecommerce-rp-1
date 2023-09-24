@@ -14,10 +14,10 @@ const BestSellers = ({ isHome }) => {
       {/* Heading */}
       {isHome && (
         <div className="mb-10">
-          <h1 className="text-5xl font-bold text-center text-[#fff] uppercase">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-center text-[#fff] uppercase">
             Best Sellers
           </h1>
-          <hr className="bg-[#fff] w-40 mx-auto mt-2 " />
+          <hr className="bg-[#fff]  w-20 md:w-40 mx-auto mt-2 " />
         </div>
       )}
 

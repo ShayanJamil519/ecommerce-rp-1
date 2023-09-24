@@ -14,7 +14,7 @@ export default function Home() {
         style={{
           background: "url(./assets/Home/home__banner.jpeg) center center/cover",
         }}
-        className="py-10 min-h-screen"
+        className="pt-0 lg:py-10 min-h-screen"
       >
         <Header />
         <Banner />

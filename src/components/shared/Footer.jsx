@@ -4,7 +4,7 @@ import { BsTwitter } from "react-icons/bs";
 
 const Footer = () => {
   return (
-    <div className="bg-[#231F1F] py-10 px-20 grid grid-cols-3 justify-items-center gap-20 text-[#fff]">
+    <div className="bg-[#231F1F] py-10 px-5 sm:px-10 lg:px-20 grid md:grid-cols-3 justify-items-center gap-16 sm:gap-10 md:gap-20 text-[#fff]">
       {/* Left */}
       <div>
         <h1 className="uppercase mb-3 text-xl font-semibold">LOGO</h1>
@@ -18,15 +18,15 @@ const Footer = () => {
       {/* Middle */}
       <div>
         <h1 className="uppercase mb-3 text-xl font-semibold">Follow Us On</h1>
-        <div className="flex justify-start items-center gap-7  text-3xl ">
+        <div className="flex justify-between items-center gap-7  text-3xl ">
           <FaFacebookF className="cursor-pointer" />
           <BsTwitter className="cursor-pointer" />
           <FiInstagram className="cursor-pointer" />
         </div>
       </div>
       {/* Right */}
-      <div>
-        <h1 className="uppercase mb-3 text-xl font-semibold">Contact Us</h1>
+      <div className="text-center md:text-left text-sm sm:text-base">
+        <h1 className="uppercase mb-3 text-xl  font-semibold">Contact Us</h1>
         <p className="uppercase mb-1 font-semibold">
           Email:
           <a href="mailto:shayanjamil500@gmail.com" className="lowercase ml-2">

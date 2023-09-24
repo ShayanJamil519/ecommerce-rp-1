@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import { useState } from "react";
+import { MdKeyboardArrowDown } from "react-icons/md";
 
 export default function ProductsDropdown() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -14,34 +15,23 @@ export default function ProductsDropdown() {
   };
 
   return (
-    <div className="relative mr-10">
+    <div className="relative lg:mr-10">
       <div
-        className="group flex justify-center items-center cursor-pointer"
+        className="group flex justify-start lg:justify-center items-center cursor-pointer"
         onClick={toggleDropdown}
       >
-        <Link href={"/products"} className="text-white">
+        <Link href={"/products"} className="text-white text-lg ">
           Categories
         </Link>
-        <svg
-          className={`ml-2 w-4 h-4 transform ${
+        <MdKeyboardArrowDown
+          className={`ml-5 transform text-[24px] ${
             isDropdownOpen ? "rotate-180" : ""
           } transition-transform duration-300`}
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            d="M19 9l-7 7-7-7"
-          ></path>
-        </svg>
+        />
       </div>
 
       <ul
-        className={`absolute z-20 mt-2 space-y-2 bg-gray-800 text-white ${
+        className={`relative lg:absolute z-20 w-[100%] p-3 text-lg rounded-md mt-2 space-y-4 lg:space-y-5 bg-[#717171] text-white ${
           isDropdownOpen ? "block" : "hidden"
         }`}
       >
