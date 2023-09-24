@@ -26,8 +26,7 @@ class CartService {
 
   async getMyCart(useremail) {
     const { data } = await axios.get(
-      // `${apiUrl}/api/cart/getMyCart/${useremail}`,
-      `http://localhost:8090/api/cart/getMyCart/${useremail}`,
+      `${apiUrl}/api/cart/getMyCart/${useremail}`,
 
       {
         headers: {
@@ -35,8 +34,18 @@ class CartService {
         },
       }
     );
-    console.log("cart api data: ");
-    console.log(data);
+    return data;
+  }
+
+  async removeFromCart(id) {
+    const { data } = await axios.delete(
+      `${apiUrl}/api/cart/deleteFromCart/${id}`,
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
     return data;
   }
 }

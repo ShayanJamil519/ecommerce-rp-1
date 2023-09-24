@@ -21,4 +21,32 @@ const useUserGetMyCart = (useremail) => {
   );
 };
 
-export { useUserAddToCart, useUserGetMyCart };
+// const useUserRemoveFromCart = (id) => {
+//   const queryClient = useQueryClient();
+//   return useMutation(
+//     () => {
+//       return CartService.removeFromCart(id);
+//     },
+//     {
+//       onSuccess: () => {
+//         queryClient.invalidateQueries("cart");
+//       },
+//     }
+//   );
+// };
+
+const useUserRemoveFromCart = () => {
+  const queryClient = useQueryClient();
+
+  return useMutation(
+    (id) => CartService.removeFromCart(id), // Function to delete item from cart
+    {
+      onSuccess: () => {
+        // Invalidate and refetch something when the mutation is successful
+        queryClient.invalidateQueries("cart");
+      },
+    }
+  );
+};
+
+export { useUserAddToCart, useUserGetMyCart, useUserRemoveFromCart };
