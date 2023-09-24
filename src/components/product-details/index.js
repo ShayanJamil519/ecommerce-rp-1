@@ -7,6 +7,7 @@ import GenderSelector from "./GenderSelector";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { useUserAddToCart } from "../../hooks/cart-hook";
+import { useRouter } from "next/navigation";
 
 const ProductDetails = ({ productId }) => {
   const [cartData, setCartData] = useState({
@@ -17,6 +18,7 @@ const ProductDetails = ({ productId }) => {
   });
 
   const [useremail, setUseremail] = useState("");
+  const router = useRouter();
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -49,7 +51,7 @@ const ProductDetails = ({ productId }) => {
   const handleSubmit = async (event) => {
     if (!useremail) {
       toast.error("login first to access");
-      return
+      return;
     }
     event.preventDefault();
 
@@ -66,6 +68,7 @@ const ProductDetails = ({ productId }) => {
           if (response?.data?.message) {
             console.log("success: ", response?.data);
             toast.success(response?.data?.message);
+            router.push("/cart");
           }
         },
       }
@@ -123,7 +126,9 @@ const ProductDetails = ({ productId }) => {
 
         {/* Counter */}
         <div className="flex justify-start items-center gap-6">
-          <p className="text-lg sm:text-xl md:text-2xl font-semibold">Quantity:</p>
+          <p className="text-lg sm:text-xl md:text-2xl font-semibold">
+            Quantity:
+          </p>
           <div className="flex justify-start items-center gap-5 text-xl text-[#fff]">
             <div
               className="w-[30px] grid place-items-center rounded-md bg-[#fff] text-[#000] cursor-pointer"

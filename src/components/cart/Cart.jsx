@@ -3,6 +3,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { useUserGetMyCart, useUserRemoveFromCart } from "../../hooks/cart-hook";
 import { useRouter } from "next/navigation";
+
 import { useStateContext } from "../../Context/StateContext";
 
 const Cart = () => {
@@ -136,7 +137,7 @@ const Cart = () => {
                     </div>
 
                     <div>
-                      <p>Subtotal</p>
+                      <p>{item.quantity * item.productId.price}</p>
                     </div>
                   </div>
 
