@@ -30,7 +30,7 @@ export async function POST(request) {
         error: "Not enough item in inventory",
       });
     } else {
-      const cart = await Cart.create(reqBody);
+      const cart = await Cart.create();
       const response = NextResponse.json({
         message: "Product added in cart",
       });

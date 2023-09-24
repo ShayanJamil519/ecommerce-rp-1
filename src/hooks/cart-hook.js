@@ -15,4 +15,19 @@ const useUserAddToCart = (cartData) => {
   );
 };
 
-export { useUserAddToCart };
+
+const useUserGetMyCart = (email) => {
+  const queryClient = useQueryClient();
+  return useMutation(
+    () => {
+      return CartService.getMyCart(email);
+    },
+    {
+      onSuccess: () => {
+        queryClient.invalidateQueries("cart/getMyCart");
+      },
+    }
+  );
+};
+
+export { useUserAddToCart, useUserGetMyCart };

@@ -17,6 +17,24 @@ class CartService {
     return res;
   }
 
+
+
+   /**
+   *User cart
+   * @returns
+   */
+
+  async getMyCart(email) {
+    const {data} = await axios.get(`${apiUrl}/api/cart/getMyCart/${email}`, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    console.log("data ")
+    console.log(data)
+    return data;
+  }
+
   
 }
 

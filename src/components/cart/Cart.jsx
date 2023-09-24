@@ -1,6 +1,19 @@
+"use client";
 import Image from "next/image";
+import { useEffect, useState } from "react";
+import { useUserGetMyCart } from "../../hooks/cart-hook";
 
 const Cart = () => {
+  const [userEmail, setUserEmail] = useState("");
+
+  const { data: cartData } = useUserGetMyCart(userEmail);
+  console.log("cartData");
+  console.log(cartData);
+
+  useEffect(() => {
+    const email = localStorage.getItem("email");
+    setUserEmail(email);
+  }, []);
   return (
     <div className=" min-h-screen w-[80%] my-16 mx-auto  border-[#4e4e4e] border-[1px]">
       {/* Table Header */}
