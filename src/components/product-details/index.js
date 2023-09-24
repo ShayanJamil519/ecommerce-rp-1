@@ -49,6 +49,7 @@ const ProductDetails = ({ productId }) => {
   const handleSubmit = async (event) => {
     if (!useremail) {
       toast.error("login first to access");
+      return
     }
     event.preventDefault();
 
@@ -78,25 +79,26 @@ const ProductDetails = ({ productId }) => {
   }, []); // Empty dependency array means this useEffect runs once after the initial render
 
   return (
-    <div className="min-h-[80vh] my-16 w-[85%]  mx-auto grid grid-cols-3 gap-6">
+    <div className="min-h-[80vh] my-16 w-[90%] md:w-[85%]  mx-auto grid grid-cols-1 lg:grid-cols-3 gap-6">
       {/* Left */}
 
-      <div className=" relative">
+      <div className="flex items-stretch ">
         <Image
           src={Shampoo}
-          fill
+          width={366}
+          height={520}
           alt="logo/image"
-          className="w-full rounded-md cover"
+          className=" h-80 w-full lg:h-[100%] rounded-md cover"
         />
       </div>
 
       {/* Right */}
-      <div className="col-span-2   text-[#fff] ">
-        <h1 className="text-3xl font-semibold uppercase mb-2 ">
+      <div className="lg:col-span-2  px-3 pb-5 pt-3 md:p-unset   text-[#fff] ">
+        <h1 className="text-2xl md:text-3xl font-semibold uppercase  sm:mb-2 ">
           Sustainable Shampoo
         </h1>
 
-        <p className=" my-7">
+        <p className=" my-4 sm:my-7">
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quam
           repudiandae tempora debitis odit accusantium at quia magni vitae
           veniam, impedit obcaecati modi distinctio autem iusto corrupti
@@ -115,13 +117,13 @@ const ProductDetails = ({ productId }) => {
           gender={cartData.gender}
         />
 
-        <p className=" text-2xl font-semibold mb-3">
-          PKR: <span className="ml-16 font-normal">1999 =/</span>
+        <p className=" text-base sm:text-xl md:text-2xl font-semibold mb-3">
+          PKR: <span className="ml-16 text-lg font-normal">1999 =/</span>
         </p>
 
         {/* Counter */}
         <div className="flex justify-start items-center gap-6">
-          <p className="text-2xl font-semibold">Quantity:</p>
+          <p className="text-lg sm:text-xl md:text-2xl font-semibold">Quantity:</p>
           <div className="flex justify-start items-center gap-5 text-xl text-[#fff]">
             <div
               className="w-[30px] grid place-items-center rounded-md bg-[#fff] text-[#000] cursor-pointer"
@@ -150,7 +152,7 @@ const ProductDetails = ({ productId }) => {
         <div className="mt-8 flex justify-start items-center gap-5">
           <button
             onClick={handleSubmit}
-            className="bg-[#8f8785] hover:bg-[#75706e] w-60  uppercase  text-[#fff] py-2 px-5 rounded-md"
+            className="bg-[#8f8785] hover:bg-[#75706e] w-full sm:w-60  uppercase  text-[#fff] py-2 px-5 rounded-md"
           >
             {isLoading ? "Adding..." : "Add to cart"}
           </button>

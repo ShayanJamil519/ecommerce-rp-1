@@ -8,7 +8,7 @@ const page = ({params}) => {
       style={{
         background: "url(./assets/Home/news__bg.jpeg) center center/cover",
       }}
-      className="pt-10 min-h-screen "
+      className="lg:pt-10 min-h-screen "
     >
       <Header />
 
