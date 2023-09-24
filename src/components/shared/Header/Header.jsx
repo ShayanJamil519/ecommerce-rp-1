@@ -43,7 +43,7 @@ const Header = () => {
         <div className="flex justify-center items-center ">
           <Link
             href="/"
-            className="text-lg pb-[2px] hover:text-black hover:border-b-[1px] hover:border-black mr-10"
+            className="text-lg pb-[2px] hover:text-black duration-500   mr-10"
           >
             Home
           </Link>
@@ -52,14 +52,14 @@ const Header = () => {
 
           <Link
             href="/about"
-            className="text-lg pb-[2px] hover:text-black hover:border-b-[1px] hover:border-black  mr-10"
+            className="text-lg pb-[2px] hover:text-black duration-500    mr-10"
           >
             About Us
           </Link>
 
           <Link
             href="/contact"
-            className="text-lg pb-[2px] hover:text-black hover:border-b-[1px] hover:border-black "
+            className="text-lg pb-[2px] hover:text-black duration-500 "
           >
             Contact
           </Link>
@@ -75,10 +75,16 @@ const Header = () => {
 
           <LoginButton />
 
-          <BsCartDashFill
-            className="cursor-pointer"
-            onClick={() => router.push("/cart")}
-          />
+          <div className="relative hidden lg:block">
+            <p className="absolute -top-[10px] -right-[10px] text-[9px] font-bold text-[#000] bg-[#fff] flex justify-center items-center w-[15px] h-[15px] rounded-full ">
+              1
+            </p>
+
+            <BsCartDashFill
+              className="cursor-pointer "
+              onClick={() => router.push("/cart")}
+            />
+          </div>
         </div>
       </header>
 
@@ -110,20 +116,20 @@ const Header = () => {
             <ul className="mb-4 flex flex-col gap-5">
               <Link
                 href="/"
-                className="text-lg pb-[2px] w-fit hover:text-black hover:border-b-[1px] hover:border-black"
+                className="text-lg pb-[2px] w-fit hover:text-black  duration-500 "
               >
                 Home
               </Link>
               <ProductsDropdown />
               <Link
                 href="/about"
-                className="text-lg pb-[2px] w-fit hover:text-black hover:border-b-[1px] hover:border-black"
+                className="text-lg pb-[2px] w-fit hover:text-black duration-500 "
               >
                 About Us
               </Link>
               <Link
                 href="/contact"
-                className="text-lg pb-[2px] w-fit hover:text-black hover:border-b-[1px] hover:border-black"
+                className="text-lg pb-[2px] w-fit hover:text-black duration-500 "
               >
                 Contact
               </Link>
@@ -135,17 +141,20 @@ const Header = () => {
                 <BiSearch className="cursor-pointer text-[40px]" />
               </div>
 
-              <div className="flex justify-between items-center">
-                <span className="text-lg hover:text-black hover:border-b-[1px] hover:border-black">
+              <div className="flex justify-between items-center relative">
+                <span className="text-lg hover:text-black duration-500 ">
                   My Cart
                 </span>
+                <p className=" absolute -top-[10px] -right-[10px] text-[10px] font-bold text-[#000] bg-[#fff] flex lg:hidden justify-center items-center w-[15px] h-[15px] rounded-full ">
+                  1
+                </p>
                 <BsCartDashFill
                   className="cursor-pointer text-[30px]"
                   onClick={() => router.push("/cart")}
                 />
               </div>
               <div className="flex justify-between items-center">
-                <span className="text-lg hover:text-black hover:border-b-[1px] hover:border-black">
+                <span className="text-lg hover:text-black duration-500 ">
                   Login
                 </span>
                 <LoginButton />

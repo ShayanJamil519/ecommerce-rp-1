@@ -20,7 +20,10 @@ export default function ProductsDropdown() {
         className="group flex justify-start lg:justify-center items-center cursor-pointer"
         onClick={toggleDropdown}
       >
-        <Link href={"/products"} className="text-white text-lg ">
+        <Link
+          href={"/products"}
+          className="text-lg hover:text-black duration-500 "
+        >
           Categories
         </Link>
         <MdKeyboardArrowDown
@@ -36,17 +39,29 @@ export default function ProductsDropdown() {
         }`}
       >
         <li>
-          <Link href="/category/electronics" onClick={closeDropdown}>
+          <Link
+            href="/category/electronics"
+            onClick={closeDropdown}
+            className="text-lg hover:text-black duration-500"
+          >
             Electronics
           </Link>
         </li>
         <li>
-          <Link href="/category/clothing" onClick={closeDropdown}>
+          <Link
+            href="/category/clothing"
+            onClick={closeDropdown}
+            className="text-lg hover:text-black duration-500"
+          >
             Clothing
           </Link>
         </li>
         <li>
-          <Link href="/category/home" onClick={closeDropdown}>
+          <Link
+            href="/category/home"
+            onClick={closeDropdown}
+            className="text-lg hover:text-black duration-500"
+          >
             Home
           </Link>
         </li>
