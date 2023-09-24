@@ -68,6 +68,15 @@ class AuthService {
     );
     return res;
   }
+
+  async contactUs(data) {
+    const res = await axios.post(`${apiUrl}/api/contact/contactUs`, data, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    return res;
+  }
 }
 
 // eslint-disable-next-line import/no-anonymous-default-export
