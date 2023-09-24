@@ -8,7 +8,7 @@ export async function POST(request) {
     const reqBody = await request.json();
 
     // console.log("userEmail: ", reqBody?.cart[0]?.useremail);
-    const useremail = reqBody?.cart[0]?.useremail;
+    // const useremail = reqBody?.email;
     let placeOrder = true; // Assume true initially
     let error = "";
 
@@ -29,13 +29,13 @@ export async function POST(request) {
         const emailSend = await transporter.sendMail({
           to: "muhammadabdullahimdad10@gmail.com",
           from: {
-            address: useremail,
+            address: reqBody?.email,
           },
-          subject: "Password Reset Request",
+          subject: "Order placed Request",
           service: "gmail",
           html: `
                  <p>You requested for password reset</p>
-                 <p>Your OTP Code is</p>
+                 <p>My address is ${reqBody?.address} and my phone number is ${reqBody.phoneNumber}</p>
                `,
         });
 
@@ -60,7 +60,7 @@ export async function POST(request) {
       } catch (error) {
         console.log("error: ", error);
         return NextResponse.json({
-          error: "Error sending reset password mail",
+          error: "Error sending mail",
         });
       }
     } else {

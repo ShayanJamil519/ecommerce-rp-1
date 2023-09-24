@@ -21,20 +21,6 @@ const useUserGetMyCart = (useremail) => {
   );
 };
 
-// const useUserRemoveFromCart = (id) => {
-//   const queryClient = useQueryClient();
-//   return useMutation(
-//     () => {
-//       return CartService.removeFromCart(id);
-//     },
-//     {
-//       onSuccess: () => {
-//         queryClient.invalidateQueries("cart");
-//       },
-//     }
-//   );
-// };
-
 const useUserRemoveFromCart = () => {
   const queryClient = useQueryClient();
 
@@ -49,4 +35,23 @@ const useUserRemoveFromCart = () => {
   );
 };
 
-export { useUserAddToCart, useUserGetMyCart, useUserRemoveFromCart };
+const usePlaceOrder = (cartData) => {
+  const queryClient = useQueryClient();
+  return useMutation(
+    () => {
+      return CartService.placeOrder(cartData);
+    },
+    {
+      onSuccess: () => {
+        queryClient.invalidateQueries("order");
+      },
+    }
+  );
+};
+
+export {
+  useUserAddToCart,
+  useUserGetMyCart,
+  useUserRemoveFromCart,
+  usePlaceOrder,
+};

@@ -58,6 +58,7 @@ const Cart = () => {
     // localStorage.setItem("data", data);
     setFinalCart(data);
     router.push("/place-order");
+    // console.log("uuuuuuuuuuuu", data?.cart[0]?.productId?.images[0]?.url);
   };
   return (
     <div className=" min-h-screen w-[80%] my-16 mx-auto  border-[#4e4e4e] border-[1px]">
@@ -85,6 +86,7 @@ const Cart = () => {
                 <div className="flex justify-start items-center gap-6">
                   <Image
                     src="/assets/Home/slider__img1.jpg"
+                    // src={item?.productId?.images[0]?.url}
                     alt="logo"
                     width={200}
                     height={250}

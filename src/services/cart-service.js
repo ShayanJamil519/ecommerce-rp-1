@@ -48,6 +48,15 @@ class CartService {
     );
     return data;
   }
+
+  async placeOrder(cartData) {
+    const res = await axios.post(`${apiUrl}/api/order/placeOrder`, cartData, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    return res;
+  }
 }
 
 // eslint-disable-next-line import/no-anonymous-default-export
