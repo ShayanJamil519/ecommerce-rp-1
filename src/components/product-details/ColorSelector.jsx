@@ -9,7 +9,9 @@ const ColorSelector = ({ selectedColor, updateColor }) => {
 
   return (
     <div className="flex justify-start items-center gap-5">
-      <h1 className="text-2xl font-semibold uppercase">Color:</h1>
+      <h1 className="text-base sm:text-xl md:text-2xl font-semibold uppercase">
+        Color:
+      </h1>
       <div className="flex justify-start items-center gap-3 bg-[#1f1f1e] py-1 px-2 rounded-full">
         {colors.map((item, index) => (
           <div

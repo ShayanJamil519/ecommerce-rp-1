@@ -3,7 +3,9 @@ const SizeSelector = ({ selectedSize, updateSize }) => {
 
   return (
     <div className="flex justify-start items-center gap-12 my-5">
-      <h1 className="text-2xl font-semibold uppercase">Size:</h1>
+      <h1 className="text-base sm:text-xl md:text-2xl font-semibold uppercase">
+        Size:
+      </h1>
       <div className="flex justify-start items-center gap-3 bg-[#1f1f1e] py-1 px-2 rounded-full">
         {sizes.map((size, index) => (
           <div
