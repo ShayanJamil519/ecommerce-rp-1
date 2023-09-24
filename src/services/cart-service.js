@@ -17,25 +17,28 @@ class CartService {
     return res;
   }
 
-
-
-   /**
+  /**
    *User cart
    * @returns
    */
 
-  async getMyCart(email) {
-    const {data} = await axios.get(`${apiUrl}/api/cart/getMyCart/${email}`, {
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    console.log("data ")
-    console.log(data)
+  //  http://localhost:8090
+
+  async getMyCart(useremail) {
+    const { data } = await axios.get(
+      // `${apiUrl}/api/cart/getMyCart/${useremail}`,
+      `http://localhost:8090/api/cart/getMyCart/${useremail}`,
+
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    console.log("cart api data: ");
+    console.log(data);
     return data;
   }
-
-  
 }
 
 // eslint-disable-next-line import/no-anonymous-default-export

@@ -15,18 +15,9 @@ const useUserAddToCart = (cartData) => {
   );
 };
 
-
-const useUserGetMyCart = (email) => {
-  const queryClient = useQueryClient();
-  return useMutation(
-    () => {
-      return CartService.getMyCart(email);
-    },
-    {
-      onSuccess: () => {
-        queryClient.invalidateQueries("cart/getMyCart");
-      },
-    }
+const useUserGetMyCart = (useremail) => {
+  return useQuery(["cart/getMyCart", useremail], () =>
+    CartService.getMyCart(useremail)
   );
 };
 

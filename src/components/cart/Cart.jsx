@@ -2,18 +2,19 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { useUserGetMyCart } from "../../hooks/cart-hook";
+import axios from "axios";
 
 const Cart = () => {
-  const [userEmail, setUserEmail] = useState("");
+  const [useremail, setUseremail] = useState("");
 
-  const { data: cartData } = useUserGetMyCart(userEmail);
-  console.log("cartData");
-  console.log(cartData);
+  const { data: cartData } = useUserGetMyCart(useremail);
+  console.log("cartData: ", cartData);
 
   useEffect(() => {
     const email = localStorage.getItem("email");
-    setUserEmail(email);
+    setUseremail(email); // Set the useremail state
   }, []);
+
   return (
     <div className=" min-h-screen w-[80%] my-16 mx-auto  border-[#4e4e4e] border-[1px]">
       {/* Table Header */}

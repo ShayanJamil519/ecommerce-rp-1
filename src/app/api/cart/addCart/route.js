@@ -9,6 +9,12 @@ export async function POST(request) {
     const reqBody = await request.json();
     const { useremail, productId, quantity, color, size, gender } = reqBody;
 
+    if (!useremail || !productId || !quantity || !color || !size || !gender) {
+      return NextResponse.json({
+        error: "Insufficient details",
+      });
+    }
+
     const product = await Product.findById(productId);
     if (!product) {
       return NextResponse.json({
@@ -23,14 +29,22 @@ export async function POST(request) {
       });
     }
 
-    console.log("aaaa: ", product.InStock);
-
     if (quantity > product?.InStock) {
       return NextResponse.json({
         error: "Not enough item in inventory",
       });
     } else {
-      const cart = await Cart.create();
+      // const cart = await Cart.create();
+
+      const cart = await Cart.create({
+        useremail,
+        productId,
+        quantity,
+        color,
+        size,
+        gender,
+      });
+
       const response = NextResponse.json({
         message: "Product added in cart",
       });
