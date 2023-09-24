@@ -3,27 +3,16 @@ import React, { useEffect, useState } from "react";
 import { useStateContext } from "../../Context/StateContext";
 import { usePlaceOrder } from "../../hooks/cart-hook";
 import { toast } from "react-toastify";
+import { useRouter } from "next/navigation";
 
 const PlaceOrder = () => {
-  // useEffect(() => {
-  //   const data = localStorage.getItem("cart");
-  //   console.log("hello", data.totalPrice);
-  // }, []);
-
-  // useEffect(() => {
-  //   const dataString = localStorage.getItem("data");
-  //   if (dataString) {
-  //     const data = JSON.parse(dataString);
-  //     console.log("hello", data.totalPrice);
-  //   }
-  // }, []);
-
   const { finalCart, setFinalCart } = useStateContext();
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [address, setAddress] = useState("");
+  const router = useRouter();
 
   console.log("final cart: ", finalCart);
 
@@ -52,6 +41,7 @@ const PlaceOrder = () => {
         onSuccess: (response) => {
           if (response?.data?.error) {
             toast.error(response?.data?.error);
+            router.push("/");
           }
           if (response?.data?.message) {
             console.log("success: ", response?.data);
@@ -68,13 +58,11 @@ const PlaceOrder = () => {
         className="grid grid-cols-5 items-stretch gap-10 min-h-[65vh]"
         onSubmit={handlePlaceOrder}
       >
-    <div className=" w-[90%]  lg:w-[85%] my-7 md:my-16 mx-auto">
-      <form className="grid md:grid-cols-5 items-stretch gap-5 md:gap-10 min-h-[65vh]">
         {/* Left */}
-        <div className="md:col-span-3  bg-[#000] py-10 px-6">
+        <div className="col-span-3  bg-[#000] py-10 px-6">
           <h1 className="text-[#fff] text-2xl text-center">Payment Method</h1>
           <p className="text-[#fff] text-sm text-center">(Cash on Delivery)</p>
-          <div className="lg:w-2/3 mt-16">
+          <div className="w-2/3 mt-16">
             <input
               required
               type="text"
@@ -110,7 +98,7 @@ const PlaceOrder = () => {
           </div>
         </div>
         {/* Right */}
-        <div className="md:col-span-2 bg-[#000] py-10 px-6">
+        <div className="col-span-2  bg-[#000] py-10 px-6">
           <h1 className="text-[#fff] text-2xl text-center mb-20">
             Order Summary
           </h1>
@@ -134,7 +122,7 @@ const PlaceOrder = () => {
             type="submit"
             className="w-full  border-none text-lg py-2 rounded-md bg-[#8f8785] hover:bg-[#75706e] text-[#fff]"
           >
-            {isLoading ? "wait..." : "Place Order"}
+            {isLoading ? "Adding..." : "Add to cart"}
           </button>
         </div>
       </form>
