@@ -8,9 +8,13 @@ import useFirebaseAuth from "../../app/lib/useFirebaseAuth";
 import { useState } from "react";
 import { useUserLogin } from "../../hooks/auth-hook";
 import RequestLoader from "../shared/RequestLoader";
+import { IoIosArrowBack } from "react-icons/io";
+import { useRouter } from "next/navigation";
 
 const Login = () => {
   const { signInWithFacebook, signInWithGoogle } = useFirebaseAuth();
+
+  const router = useRouter();
 
   const [userData, setUserData] = useState({
     email: "",
@@ -141,6 +145,13 @@ const Login = () => {
             </button>
           </div>
         </div>
+      </div>
+      {/* Go Back */}
+      <div className="mt-5 flex justify-start items-center gap-1 cursor-pointer">
+        <IoIosArrowBack className="text-xl text-[#cac9c9]" />
+        <p onClick={() => router.back()} className="text-[#cac9c9] ">
+          Go Back
+        </p>
       </div>
     </div>
   );

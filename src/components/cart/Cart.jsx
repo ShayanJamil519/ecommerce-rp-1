@@ -65,10 +65,10 @@ const Cart = () => {
     <>
       {data ? (
         <>
-          <div className="  w-[80%] my-16 mx-auto  border-[#4e4e4e] border-[1px]">
+          <div className=" w-[95%] sm:[90%] lg:w-[80%] my-16 mx-auto  border-[#4e4e4e] border-[1px]">
             {/* Table Header */}
-            <div className="grid grid-cols-5 text-[#fff] text-xl py-4 px-3  border-[#4e4e4e] border-b-[1px] bg-[#000]">
-              <div className="col-span-3">
+            <div className="grid  grid-cols-4 sm:grid-cols-5  text-[#fff] text-lg sm:text-xl py-4 px-3  border-[#4e4e4e] border-b-[1px] bg-[#000]">
+              <div className="col-span-2 sm:col-span-3">
                 <p>Products</p>
               </div>
 
@@ -87,17 +87,17 @@ const Cart = () => {
                 <>
                   <div
                     key={index}
-                    className="grid grid-cols-5 items-center py-3  "
+                    className="grid grid-cols-4 sm:grid-cols-5 items-start sm:items-center py-3  "
                   >
-                    <div className="col-span-3 ">
-                      <div className="flex justify-start items-center gap-6">
+                    <div className="col-span-2 sm:col-span-3 ">
+                      <div className="flex sm:flex-row flex-col justify-start items-start sm:items-center gap-3 sm:gap-6">
                         <Image
                           src="/assets/Home/slider__img1.jpg"
                           // src={item?.productId?.images[0]?.url}
                           alt="logo"
                           width={200}
                           height={250}
-                          className="rounded-md"
+                          className=" sm:w-unset sm:h-unset w-[100px] h-[70px] rounded-md"
                         />
                         <div>
                           <h1 className="mb-1">{item.productId.name}</h1>
@@ -115,8 +115,8 @@ const Cart = () => {
                     </div>
 
                     <div>
-                      <div className="flex justify-start items-center gap-5 text-xl text-[#fff]">
-                        <div className="w-[30px] grid place-items-center rounded-md bg-[#fff] text-[#000] cursor-pointer">
+                      <div className="flex justify-start items-center gap-2 sm:gap-5 text-xl text-[#fff]">
+                        <div className="w-[20px] h-[25px] sm:w-[30px] flex justify-center items-center rounded-md bg-[#fff] text-[#000] cursor-pointer">
                           <p
                             className=" text-2xl "
                             onClick={() => handleDecreament(item._id)}
@@ -125,7 +125,7 @@ const Cart = () => {
                           </p>
                         </div>
                         <p className=" text-2xl ">{item.quantity}</p>
-                        <div className="w-[30px] grid place-items-center rounded-md bg-[#fff] text-[#000] cursor-pointer">
+                        <div className="w-[20px] h-[25px] sm:w-[30px] flex justify-center items-center rounded-md bg-[#fff] text-[#000] cursor-pointer">
                           <p
                             className="text-2xl font-semibold"
                             onClick={() => handleIncreament(item._id)}
@@ -145,9 +145,9 @@ const Cart = () => {
                 </>
               ))}
               {/* Total Container */}
-              <div className="w-[40%] mr-0 ml-auto mt-10 pb-10">
+              <div className="sm:w-[40%] mr-0 ml-auto mt-10 pb-10">
                 <hr className=" border-[#4e4e4e] bg-[#4e4e4e] h-[5px] rounded-lg mb-7" />
-                <div className="flex justify-between items-center mb-4">
+                <div className="flex  justify-between items-center mb-4">
                   <p>Total Amount:</p>
                   <p>{cartData?.totalPrice}</p>
                 </div>
