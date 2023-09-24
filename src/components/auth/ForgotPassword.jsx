@@ -34,7 +34,7 @@ const ForgotPassword = () => {
   };
 
   return (
-    <div className=" border-black w-2/3 my-20">
+    <div className=" border-black w-3/4 lg:w-2/3 my-10 lg:my-20">
       <form onSubmit={handleSubmit}>
         <p className="mb-10 text-[#fff] ">
           Enter your email below we will send you a link to reset your password
@@ -48,7 +48,7 @@ const ForgotPassword = () => {
             name="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="bg-[#282725] w-full pb-1 text-[#fff] text-base focus:outline-none border-b-[1px]  border-gray-400"
+            className="bg-[#282725] w-full rounded-md sm:rounded-none py-2 md:pb-1  text-[#fff] text-base focus:outline-none border-b-[1px]  border-gray-400"
           />
         </div>
 

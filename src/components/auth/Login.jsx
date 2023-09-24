@@ -50,7 +50,7 @@ const Login = () => {
   };
 
   return (
-    <div className=" border-black w-2/3 my-20">
+    <div className=" w-3/4 lg:w-2/3 my-10 lg:my-20">
       <h1 className="text-4xl font-bold uppercase mb-16 text-[#fff] text-center">
         Login
       </h1>
@@ -63,9 +63,9 @@ const Login = () => {
             name="email"
             value={userData.email}
             onChange={handleInputChange}
-            className="bg-[#282725] w-full pb-1 text-[#fff] text-base focus:outline-none border-b-[1px]  border-gray-400"
+            className="bg-[#282725] w-full rounded-md sm:rounded-none py-2 md:pb-1 text-[#fff] text-base focus:outline-none border-b-[1px]  border-gray-400"
           />
-          <BiSolidUser className="text-gray-400 text-2xl absolute right-0 bottom-1 " />
+          <BiSolidUser className="text-gray-400 text-2xl absolute right-0 bottom-2 md:bottom-1 " />
         </div>
 
         <div className="mb-3 flex justify-between items-center relative">
@@ -76,9 +76,9 @@ const Login = () => {
             name="password"
             value={userData.password}
             onChange={handleInputChange}
-            className="bg-[#282725] w-full pb-1 text-[#fff] text-base focus:outline-none border-b-[1px] border-gray-400"
+            className="bg-[#282725] w-full rounded-md sm:rounded-none py-2 md:pb-1 text-[#fff] text-base focus:outline-none border-b-[1px] border-gray-400"
           />
-          <BiSolidLockAlt className="text-gray-400 text-2xl absolute right-0 bottom-1 " />
+          <BiSolidLockAlt className="text-gray-400 text-2xl absolute right-0 bottom-2 md:bottom-1" />
         </div>
 
         <div className="mb-4 flex justify-between items-center">
@@ -112,9 +112,9 @@ const Login = () => {
       </form>
 
       {/* OAuth */}
-      <div className="mt-6">
+      <div className="mt-6 w-full">
         {/* Else */}
-        <div className="grid grid-cols-[45%_7%_45%] items-center gap-2 text-[#fff]">
+        <div className="grid grid-cols-[30%_10%_30%] sm:grid-cols-[45%_7%_45%] justify-center items-center gap-5 sm:gap-2 text-[#fff]">
           <hr className="bg-[#fff]" />
           <span>Else</span>
           <hr />

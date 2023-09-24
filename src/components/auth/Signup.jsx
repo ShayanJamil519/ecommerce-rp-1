@@ -53,7 +53,7 @@ const Signup = () => {
   };
 
   return (
-    <div className=" border-black w-2/3 my-20">
+    <div className=" border-black w-3/4 lg:w-2/3 my-10 lg:my-20">
       <h1 className="text-4xl font-bold uppercase mb-16 text-[#fff] text-center">
         Registration
       </h1>
@@ -66,7 +66,7 @@ const Signup = () => {
             value={userData.name}
             onChange={handleInputChange}
             placeholder="Username"
-            className="bg-[#282725] w-full pb-1 text-[#fff] text-base focus:outline-none border-b-[1px]  border-gray-400"
+            className="bg-[#282725] w-full rounded-md sm:rounded-none py-2 md:pb-1 text-[#fff] text-base focus:outline-none border-b-[1px]  border-gray-400"
           />
         </div>
 
@@ -78,7 +78,7 @@ const Signup = () => {
             value={userData.email}
             onChange={handleInputChange}
             placeholder="Email"
-            className="bg-[#282725] w-full pb-1 text-[#fff] text-base focus:outline-none border-b-[1px]  border-gray-400"
+            className="bg-[#282725] w-full rounded-md sm:rounded-none py-2 md:pb-1 text-[#fff] text-base focus:outline-none border-b-[1px]  border-gray-400"
           />
         </div>
 
@@ -90,7 +90,7 @@ const Signup = () => {
             value={userData.phone}
             onChange={handleInputChange}
             placeholder="Phone Number"
-            className="bg-[#282725] w-full pb-1 text-[#fff] text-base focus:outline-none border-b-[1px]  border-gray-400"
+            className="bg-[#282725] w-full rounded-md sm:rounded-none py-2 md:pb-1 text-[#fff] text-base focus:outline-none border-b-[1px]  border-gray-400"
           />
         </div>
 
@@ -102,7 +102,7 @@ const Signup = () => {
             value={userData.password}
             onChange={handleInputChange}
             placeholder="Password"
-            className="bg-[#282725] w-full pb-1 text-[#fff] text-base focus:outline-none border-b-[1px] border-gray-400"
+            className="bg-[#282725] w-full rounded-md sm:rounded-none py-2 md:pb-1 text-[#fff] text-base focus:outline-none border-b-[1px] border-gray-400"
           />
         </div>
 
@@ -114,7 +114,7 @@ const Signup = () => {
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
             placeholder="Confirm Password"
-            className="bg-[#282725] w-full pb-1 text-[#fff] text-base focus:outline-none border-b-[1px] border-gray-400"
+            className="bg-[#282725] w-full rounded-md sm:rounded-none py-2 md:pb-1 text-[#fff] text-base focus:outline-none border-b-[1px] border-gray-400"
           />
         </div>
 

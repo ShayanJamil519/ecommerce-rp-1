@@ -7,15 +7,15 @@ const page = () => {
       style={{
         background: "url(./assets/Shared/login__bg.jpg) center center/cover",
       }}
-      className="min-h-screen grid grid-cols-2 justify-items-center place-items-center"
+      className="min-h-screen grid lg:grid-cols-2 justify-items-center place-items-start md:place-items-center"
     >
 
       <Signup />
      
 
       {/* Right */}
-      <div className="flex justify-end px-10">
-        <div className="w-2/4 ">
+      <div className="hidden lg:flex justify-end px-10">
+        <div className="lg:w-2/4 ">
           <h1 className="text-4xl font-bold uppercase mb-5 text-[#fff] ">
             Welcome <br /> Back!
           </h1>

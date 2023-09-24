@@ -2,13 +2,13 @@ import ResetPassword from "@/components/auth/ResetPassword";
 
 const page = ({ params }) => {
   return (
-    <div className="min-h-screen grid grid-cols-2 justify-items-center place-items-center bg-login__bg">
+    <div className="min-h-screen lg:grid grid-cols-2 justify-items-center place-items-center bg-login__bg">
       {/* Left */}
       <ResetPassword token={params.token} />
 
       {/* Right */}
-      <div className="flex justify-end px-10">
-        <div className="w-2/4 ">
+      <div className="hidden lg:flex justify-end px-10">
+        <div className="lg:w-2/4 ">
           <h1 className="text-4xl font-bold uppercase mb-5 text-[#fff] ">
             Welcome <br /> Back!
           </h1>
