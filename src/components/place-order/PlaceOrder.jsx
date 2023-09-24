@@ -1,6 +1,25 @@
-import React from "react";
+"use client";
+import React, { useEffect } from "react";
+import { useStateContext } from "../../Context/StateContext";
 
 const PlaceOrder = () => {
+  // useEffect(() => {
+  //   const data = localStorage.getItem("cart");
+  //   console.log("hello", data.totalPrice);
+  // }, []);
+
+  // useEffect(() => {
+  //   const dataString = localStorage.getItem("data");
+  //   if (dataString) {
+  //     const data = JSON.parse(dataString);
+  //     console.log("hello", data.totalPrice);
+  //   }
+  // }, []);
+
+  const { finalCart, setFinalCart } = useStateContext();
+
+  console.log("final cart: ", finalCart);
+
   return (
     <div className="  w-[85%] my-16 mx-auto">
       <form className="grid grid-cols-5 items-stretch gap-10 min-h-[65vh]">

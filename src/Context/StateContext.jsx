@@ -12,6 +12,7 @@ const StateContext = createContext({
 export function StateProvider({ children }) {
   const [openSearchModel, setOpenSearchModel] = useState(false);
   const auth = useFirebaseAuth();
+  const [finalCart, setFinalCart] = useState(false);
 
   const handleSearchModelOpen = () => {
     setOpenSearchModel(!openSearchModel);
@@ -19,7 +20,13 @@ export function StateProvider({ children }) {
 
   return (
     <StateContext.Provider
-      value={{ openSearchModel, handleSearchModelOpen, auth }}
+      value={{
+        openSearchModel,
+        handleSearchModelOpen,
+        auth,
+        finalCart,
+        setFinalCart,
+      }}
     >
       {children}
     </StateContext.Provider>

@@ -2,11 +2,14 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { useUserGetMyCart, useUserRemoveFromCart } from "../../hooks/cart-hook";
-import axios from "axios";
+import { useRouter } from "next/navigation";
+import { useStateContext } from "../../Context/StateContext";
 
 const Cart = () => {
   const [useremail, setUseremail] = useState("");
   const [data, setData] = useState("");
+  const router = useRouter();
+  const { setFinalCart } = useStateContext();
 
   const { data: cartData } = useUserGetMyCart(useremail);
 
@@ -49,7 +52,12 @@ const Cart = () => {
   };
 
   const handleCheckout = () => {
-    console.log("final: ", data);
+    // console.log("dddd", data);
+    // console.log("ppppppp", data.totalPrice);
+
+    // localStorage.setItem("data", data);
+    setFinalCart(data);
+    router.push("/place-order");
   };
   return (
     <div className=" min-h-screen w-[80%] my-16 mx-auto  border-[#4e4e4e] border-[1px]">
