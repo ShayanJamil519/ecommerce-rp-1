@@ -35,9 +35,10 @@ const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [useremail, setUseremail] = useState("");
 
-  const { data: cartData } = useUserGetMyCart(useremail);
-  console.log("cartData");
-  console.log(cartData);
+  const { data } = useUserGetMyCart(useremail);
+  console.log("dataaaaaaaaaaa");
+  // console.log(data.cart.length);
+  console.log(data);
 
   useEffect(() => {
     const email = localStorage.getItem("email");
@@ -92,6 +93,15 @@ const Header = () => {
                 {cartData?.cart.length}
               </p>
             ) : null} */}
+
+            {useremail && data && data.cart ? (
+              <p className="absolute -top-[10px] -right-[10px] text-[9px] font-bold text-[#000] bg-[#fff] flex justify-center items-center w-[15px] h-[15px] rounded-full ">
+                {data.cart.length}
+              </p>
+            ) : null}
+            {/* <p className="absolute -top-[10px] -right-[10px] text-[9px] font-bold text-[#000] bg-[#fff] flex justify-center items-center w-[15px] h-[15px] rounded-full ">
+              1
+            </p> */}
 
             <BsCartDashFill
               className="cursor-pointer "
