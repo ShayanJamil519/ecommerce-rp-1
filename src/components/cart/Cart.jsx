@@ -60,7 +60,7 @@ const Cart = () => {
     router.push("/place-order");
   };
   return (
-    <div className=" min-h-screen w-[80%] my-16 mx-auto  border-[#4e4e4e] border-[1px]">
+    <div className="  w-[80%] my-16 mx-auto  border-[#4e4e4e] border-[1px]">
       {/* Table Header */}
       <div className="grid grid-cols-5 text-[#fff] text-xl py-4 px-3  border-[#4e4e4e] border-b-[1px] bg-[#000]">
         <div className="col-span-3">

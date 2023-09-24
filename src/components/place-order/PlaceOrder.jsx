@@ -21,13 +21,13 @@ const PlaceOrder = () => {
   console.log("final cart: ", finalCart);
 
   return (
-    <div className="  w-[85%] my-16 mx-auto">
-      <form className="grid grid-cols-5 items-stretch gap-10 min-h-[65vh]">
+    <div className=" w-[90%]  lg:w-[85%] my-7 md:my-16 mx-auto">
+      <form className="grid md:grid-cols-5 items-stretch gap-5 md:gap-10 min-h-[65vh]">
         {/* Left */}
-        <div className="col-span-3  bg-[#000] py-10 px-6">
+        <div className="md:col-span-3  bg-[#000] py-10 px-6">
           <h1 className="text-[#fff] text-2xl text-center">Payment Method</h1>
           <p className="text-[#fff] text-sm text-center">(Cash on Delivery)</p>
-          <div className="w-2/3 mt-16">
+          <div className="lg:w-2/3 mt-16">
             <input
               required
               type="text"
@@ -59,7 +59,7 @@ const PlaceOrder = () => {
           </div>
         </div>
         {/* Right */}
-        <div className="col-span-2  bg-[#000] py-10 px-6">
+        <div className="md:col-span-2 bg-[#000] py-10 px-6">
           <h1 className="text-[#fff] text-2xl text-center mb-20">
             Order Summary
           </h1>
