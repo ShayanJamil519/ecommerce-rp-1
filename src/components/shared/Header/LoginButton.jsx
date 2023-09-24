@@ -8,7 +8,7 @@ const LoginButton = () => {
   return (
     <>
       <CgProfile
-        className="cursor-pointer"
+        className="cursor-pointer text-[30px] lg:text-2xl"
         onClick={() => router.push("/login")}
       />
     </>
