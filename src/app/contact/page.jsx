@@ -8,11 +8,11 @@ const page = () => {
       style={{
         background: "url(./assets/Home/news__bg.jpeg) center center/cover",
       }}
-      className="pt-10 min-h-screen"
+      className="pt-0 lg:pt-10 min-h-screen"
     >
       <Header />
       {/* Fomr */}
-      <form className="w-[80%] mx-auto  my-10 bg-[#000] py-10 px-20 rounded-2xl">
+      <form className="w-[90%] md:w-[80%] mx-auto  my-10 bg-[#000] py-10 px-5 sm:px-20 lg:px-20 rounded-2xl">
         <h1 className="text-[#fff] text-xl text-center mb-10">
           Give us your feedback/queries
         </h1>
