@@ -22,7 +22,11 @@ export async function POST(request) {
       });
     }
 
-    const isCart = await Cart.find({ productId });
+    const isCart = await Cart.find({
+      productId: productId,
+      useremail: useremail,
+    });
+
     if (isCart.length !== 0) {
       return NextResponse.json({
         error: "Product already exist in cart",
@@ -34,8 +38,6 @@ export async function POST(request) {
         error: "Not enough item in inventory",
       });
     } else {
-      // const cart = await Cart.create();
-
       const cart = await Cart.create({
         useremail,
         productId,
