@@ -29,8 +29,6 @@ const useUserLogin = (userData) => {
   );
 };
 
-
-
 const useUserForgotPassword = (email) => {
   const queryClient = useQueryClient();
   return useMutation(
@@ -44,7 +42,6 @@ const useUserForgotPassword = (email) => {
     }
   );
 };
-
 
 const useUserResetPassword = (userData, token) => {
   const queryClient = useQueryClient();
@@ -60,6 +57,24 @@ const useUserResetPassword = (userData, token) => {
   );
 };
 
+const useContactUs = (data) => {
+  const queryClient = useQueryClient();
+  return useMutation(
+    () => {
+      return AuthService.contactUs(data);
+    },
+    {
+      onSuccess: () => {
+        queryClient.invalidateQueries("contact");
+      },
+    }
+  );
+};
 
-
-export { useUserSignup, useUserLogin, useUserForgotPassword, useUserResetPassword };
+export {
+  useUserSignup,
+  useUserLogin,
+  useUserForgotPassword,
+  useUserResetPassword,
+  useContactUs,
+};
