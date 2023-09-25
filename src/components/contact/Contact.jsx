@@ -1,3 +1,5 @@
+"use client";
+import { useState } from "react";
 import { useContactUs } from "../../hooks/auth-hook";
 import { toast } from "react-toastify";
 
