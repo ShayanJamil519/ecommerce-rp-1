@@ -7,7 +7,7 @@ import {
   FacebookAuthProvider,
   signInWithPopup,
 } from "firebase/auth";
-import Firebase from "../FirebaseConfig"; // Import your Firebase initialization correctly
+import {Firebase} from "../FirebaseConfig"; // Import your Firebase initialization correctly
 
 const formatAuthUser = (user) => ({
   uid: user.uid,
