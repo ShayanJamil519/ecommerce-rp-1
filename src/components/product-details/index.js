@@ -49,13 +49,16 @@ const ProductDetails = ({ productId }) => {
   } = useUserAddToCart(JSON.stringify({ ...cartData, productId, useremail }));
 
   const handleSubmit = async (event) => {
-    if (!useremail) {
-      toast.error("login first to access");
-      return;
-    }
+
     event.preventDefault();
 
-    console.log("cart data: ", cartData);
+    if (!useremail) {
+      toast.error("Please login first");
+      router.push("/login")
+      return;
+    }
+    
+
 
     addMutate(
       {},

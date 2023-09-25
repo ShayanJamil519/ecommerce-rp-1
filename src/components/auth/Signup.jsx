@@ -5,8 +5,11 @@ import { IoIosArrowBack } from "react-icons/io";
 import { useUserSignup } from "../../hooks/auth-hook";
 import RequestLoader from "../shared/RequestLoader";
 import { toast } from "react-toastify";
+import { useRouter } from "next/navigation";
 
 const Signup = () => {
+  const router = useRouter();
+
   const [confirmPassword, setConfirmPassword] = useState("");
   const [userData, setUserData] = useState({
     name: "",
@@ -46,6 +49,7 @@ const Signup = () => {
           }
           if (response?.data?.message) {
             toast.success(response?.data?.message);
+            router.push("/login");
           }
         },
       }

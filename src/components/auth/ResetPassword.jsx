@@ -5,8 +5,11 @@ import { useState } from "react";
 import { IoIosArrowBack } from "react-icons/io";
 import { useUserResetPassword } from "../../hooks/auth-hook";
 import RequestLoader from "../shared/RequestLoader";
+import { useRouter } from "next/navigation";
 
 const ResetPassword = ({ token }) => {
+  const router = useRouter();
+
   const [userData, setUserData] = useState({
     newPassword: "",
     confirmNewPassword: "",
@@ -43,6 +46,7 @@ const ResetPassword = ({ token }) => {
           }
           if (response?.data?.message) {
             toast.success(response?.data?.message);
+            router.push("/login");
           }
         },
       }

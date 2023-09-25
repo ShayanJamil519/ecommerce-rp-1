@@ -5,6 +5,7 @@ import { useUserGetMyCart, useUserRemoveFromCart } from "../../hooks/cart-hook";
 import { useRouter } from "next/navigation";
 
 import { useStateContext } from "../../Context/StateContext";
+import { toast } from "react-toastify";
 
 const Cart = () => {
   const [useremail, setUseremail] = useState("");
@@ -21,17 +22,28 @@ const Cart = () => {
 
   useEffect(() => {
     setData(cartData);
-    console.log("data: ", data);
+    console.log("data of cart: ", data);
   }, [cartData]);
 
   const removeFromCartMutation = useUserRemoveFromCart();
+
   const handleRemoveFromCart = (id) => {
-    console.log("handle: ", id);
+    if (!useremail) {
+      toast.error("Please login first");
+      router.push("/login");
+      return;
+    }
+    // console.log("handle: ", id);
     removeFromCartMutation.mutate(id);
   };
 
   const handleIncreament = (id) => {
-    console.log("handleIncreament: ", id);
+    if (!useremail) {
+      toast.error("Please login first");
+      router.push("/login");
+      return;
+    }
+    // console.log("handleIncreament: ", id);
     const updatedCart = data?.cart.map((item) => {
       if (item._id === id && item.productId.InStock > item.quantity) {
         return { ...item, quantity: item.quantity + 1 };
@@ -42,7 +54,12 @@ const Cart = () => {
   };
 
   const handleDecreament = (id) => {
-    console.log("handleDecreament: ", id);
+    if (!useremail) {
+      toast.error("Please login first");
+      router.push("/login");
+      return;
+    }
+    // console.log("handleDecreament: ", id);
     const updatedCart = data?.cart.map((item) => {
       if (item._id === id && item.quantity > 1) {
         return { ...item, quantity: item.quantity - 1 };
@@ -53,17 +70,18 @@ const Cart = () => {
   };
 
   const handleCheckout = () => {
-    // console.log("dddd", data);
-    // console.log("ppppppp", data.totalPrice);
+    if (!useremail) {
+      toast.error("Please login first");
+      router.push("/login");
+      return;
+    }
 
-    // localStorage.setItem("data", data);
     setFinalCart(data);
     router.push("/place-order");
-    // console.log("uuuuuuuuuuuu", data?.cart[0]?.productId?.images[0]?.url);
   };
   return (
     <>
-      {data ? (
+      {!data?.error ? (
         <>
           <div className=" w-[95%] sm:[90%] lg:w-[80%] my-16 mx-auto  border-[#4e4e4e] border-[1px]">
             {/* Table Header */}
@@ -165,7 +183,11 @@ const Cart = () => {
           </div>
         </>
       ) : (
-        <p>No Items In Cart</p>
+        <div className="min-h-[50vh] flex justify-center items-center">
+          <p className="text-[#fff] text-center text-xl sm:text-4xl lg:text-5xl">
+            You Have No Items In Cart
+          </p>
+        </div>
       )}
     </>
   );

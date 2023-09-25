@@ -47,6 +47,8 @@ const Login = () => {
           }
           if (response?.data?.message) {
             toast.success(response?.data?.message);
+            localStorage.setItem("email", userData.email);
+            router.back();
           }
         },
       }
